@@ -1,5 +1,6 @@
 ---
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer.astro';
 
 interface Props {
 	title: string;
@@ -24,6 +25,7 @@ const { title } = Astro.props;
 			<img src="/gradient.webp" alt="gradient" id="gradient">
 		</div>
 		<slot />
+		<Footer />
 		<script>
 			const gradientElement = document.getElementById('gradient');
 			if (gradientElement) {

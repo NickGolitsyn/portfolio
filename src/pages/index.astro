@@ -1,73 +1,83 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import json from '../../dictionaries/data.json'
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
+	<main class="max-w-screen-xl mx-8">
 		<div class="h-96 flex justify-center items-end">
-			<div>
-				<h1>Hello, I am Nick.<br />A Frontend Web Developer</h1>
+			<div class="mb-12">
+				<h1 class="text-4xl text-center font-semibold">Hello. I am Nick,</h1>
+				<p class="text-center text-3xl font-medium">A Frontend Web Developer.</p>
 			</div>
 		</div>
-		<div class="h-screen bg-gray-50">sahjdsa</div>
+		<div>
+			<h2 class="text-xl font-medium mb-2">About</h2>
+			<p class="text-gray-500">
+				I'm a 21 year old developer living in Germany. I discovered my passion for coding after seeing my brother do it. I fell in love with using my creativity to build things for the web. Through persistence, self-discipline, and commitment, I achieved my goal of becoming a frontend developer. What kept me on this journey is that I always find learning new things exciting and facing unfamiliar challenges. In addition to coding, I enjoy building side projects because it allows me to explore my creativity and accomplish exciting things.
+			</p>
+		</div>
+		<div class="mt-10">
+			<h2 class="text-xl font-medium mb-2">Skills</h2>
+			<div class="flex flex-wrap gap-3">
+				{json.skills.map((item) => (
+					<p class="bg-gray-100 text-gray-500 px-3 py-1 border border-gray-300 rounded-sm">{item}</p>
+				))}
+			</div>
+		</div>
+		<div class="mt-10">
+			<h2 class="text-xl font-medium mb-2">Education</h2>
+			{json.education.map((item) => (
+				<div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
+					<div>
+						<p class="w-max text-gray-500">{item.date}</p>
+					</div>
+					<div> 
+						<h3 class="font-medium mb-1">{item.title}</h3>
+						<p class="text-gray-500">{item.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="mt-10">
+			<h2 class="text-xl font-medium mb-2">Experience</h2>
+			{json.experience.map((item) => (
+				<div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
+					<div>
+						<p class="w-max text-gray-500">{item.date}</p>
+					</div>
+					<div> 
+						<h3 class="font-medium mb-1">{item.title}</h3>
+						<p class="text-gray-500">{item.description}</p>
+						<div class="flex flex-wrap gap-3 mt-3">
+							{item.stack.map((stackItem) => (
+								<p class="bg-gray-100 text-gray-500 px-3 py-1 border border-gray-300 rounded-sm">{stackItem}</p>
+							))}
+						</div>
+					</div>
+				</div>
+			))}
+		</div>
+		<div class="mt-10">
+			<h2 class="text-xl font-medium mb-2">Projects</h2>
+			<div class="grid grid-cols-2 gap-1">
+				{json.projects.map((item) => (
+					<div class="w-full bg-slate-100 border border-gray-300 rounded-md px-5 py-4 flex flex-col gap-2">
+						<div class="flex justify-between">
+							<h3>{item.title}</h3>
+							<div class="flex gap-2">
+								<a href={item.git} target="_blank">
+									<img class="max-h-6 h-6 max-w-6" src="/github.svg" alt="github logo" />
+								</a>
+								<a href={item.url} target="_blank">
+									<img class="max-h-6 h-6 max-w-6" src="/url.svg" alt="github logo" />
+								</a>
+							</div>
+						</div>
+						<p class="text-gray-500">{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
 	</main>
 </Layout>
-
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
