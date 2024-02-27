@@ -27,45 +27,45 @@ export default function Navbar() {
     scrolled ? 'bg-gray-500 border bg-opacity-20 border-gray-400  backdrop-blur-md' : 'backdrop-blur-none'
   } border-opacity-70 w-fit mx-auto rounded-full`;
 
-  // const liClasses = `py-4 z-10 px-8 mx-1 cursor-pointer ${
-  //   scrolled ? 'text-white' : 'text-gray-500'
-  // }`;
-
-  const handleItemClick = (itemName: string, position: number) => {
+  const handleItemClick = (itemName: string, positionSmall: number, positionLarge: number) => {
     setActiveItem(itemName);
-    setBubblePosition(position);
+
+    // Adjust position based on screen size
+    const screenWidth = window.innerWidth;
+    const newPosition = screenWidth < 640 ? positionSmall : positionLarge;
+    setBubblePosition(newPosition);
   };
 
   return (
     <nav className="mt-4 sm:mt-8 w-screen flex justify-center fixed">
-    <ul className={ulClasses} style={{ position: 'relative' }}>
-      <li
-        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`}
-        onClick={() => handleItemClick('Home', 0)}
-      >
-        Home
-      </li>
-      <li
-        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
-        onClick={() => handleItemClick('About', 117)}
-      >
-        About
-      </li>
-      <li
-        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
-        onClick={() => handleItemClick('Projects', 240)}
-      >
-        Projects
-      </li>
-      <li
-        className="w-20 left-4 z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute custom-transition"
-        style={{
-          right: 'auto',
-          transform: `translateX(${bubblePosition}px)`,
-          transition: `transform .3s cubic-bezier(.34,1.56,.64,1)`,
-        }}
-      ></li>
-    </ul>
-  </nav>
+      <ul className={ulClasses} style={{ position: 'relative' }}>
+        <li
+          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`}
+          onClick={() => handleItemClick('Home', 0, 0)}
+        >
+          Home
+        </li>
+        <li
+          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
+          onClick={() => handleItemClick('About', 100, 117)}
+        >
+          About
+        </li>
+        <li
+          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
+          onClick={() => handleItemClick('Projects', 208, 240)}
+        >
+          Projects
+        </li>
+        <li
+          className="w-20 left-2 sm:left-4 z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute custom-transition"
+          style={{
+            right: 'auto',
+            transform: `translateX(${bubblePosition}px)`,
+            transition: `transform .3s cubic-bezier(.34,1.56,.64,1)`,
+          }}
+        ></li>
+      </ul>
+    </nav>
   );
 }
