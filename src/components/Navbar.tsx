@@ -23,7 +23,7 @@ export default function Navbar() {
     };
   }, []);
 
-  const ulClasses = `flex transition-all z-8 items-center border-opacity-70 ${
+  const ulClasses = `flex transition-all z-8 h-14 items-center border-opacity-70 ${
     scrolled ? 'bg-gray-500 border bg-opacity-20 border-gray-400  backdrop-blur-md' : 'backdrop-blur-none'
   } border-opacity-70 w-fit mx-auto rounded-full`;
 
@@ -40,22 +40,37 @@ export default function Navbar() {
     <nav className="mt-4 sm:mt-8 w-screen flex justify-center fixed">
       <ul className={ulClasses} style={{ position: 'relative' }}>
         <li
-          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`}
+          className='z-10'
           onClick={() => handleItemClick('Home', 0, 0)}
         >
-          Home
+        <a
+          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`} 
+          href="#home"
+        >
+            Home
+          </a>
         </li>
         <li
-          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
+          className='z-10'
           onClick={() => handleItemClick('About', 100, 117)}
         >
-          About
+          <a 
+            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
+            href="#about"
+          >
+            About
+          </a>
         </li>
         <li
-          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
+          className='z-10'
           onClick={() => handleItemClick('Projects', 208, 240)}
         >
-          Projects
+          <a 
+            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
+            href="#projects"
+          >
+            Projects
+          </a>
         </li>
         <li
           className="w-20 left-2 sm:left-4 z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute custom-transition"

@@ -4,7 +4,7 @@ import json from '../../dictionaries/data.json'
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="max-w-screen-xl mx-8">
+	<main class="max-w-screen-xl mx-8" id="home">
 		<div class="h-96 flex justify-center items-end">
 			<div class="mb-12">
 				<h1 class="text-4xl text-center font-semibold">Hello. I am Nick,</h1>
@@ -12,7 +12,7 @@ import json from '../../dictionaries/data.json'
 			</div>
 		</div>
 		<div>
-			<h2 class="text-xl font-medium mb-2">About</h2>
+			<h2 class="text-xl font-medium mb-2" id="about">About</h2>
 			<p class="text-gray-500">
 				I'm a 21 year old developer living in Germany. I discovered my passion for coding after seeing my brother do it. I fell in love with using my creativity to build things for the web. Through persistence, self-discipline, and commitment, I achieved my goal of becoming a frontend developer. What kept me on this journey is that I always find learning new things exciting and facing unfamiliar challenges. In addition to coding, I enjoy building side projects because it allows me to explore my creativity and accomplish exciting things.
 			</p>
@@ -59,7 +59,7 @@ import json from '../../dictionaries/data.json'
 			))}
 		</div>
 		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2">Projects</h2>
+			<h2 class="text-xl font-medium mb-2" id="projects">Projects</h2>
 			<div class="grid grid-cols-2 gap-1">
 				{json.projects.map((item) => (
 					<div class="w-full bg-slate-100 border border-gray-300 rounded-md px-5 py-4 flex flex-col gap-2">
