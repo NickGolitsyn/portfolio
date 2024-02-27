@@ -38,33 +38,34 @@ export default function Navbar() {
 
   return (
     <nav className="mt-4 sm:mt-8 w-screen flex justify-center fixed">
-      <ul className={ulClasses}>
-        <li
-          className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`}
-          onClick={() => handleItemClick('Home', 0)}
-        >
-          Home
-        </li>
-        <li
-          className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
-          onClick={() => handleItemClick('About', 117)}
-        >
-          About
-        </li>
-        <li
-          className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
-          onClick={() => handleItemClick('Projects', 240)}
-        >
-          Projects
-        </li>
-        <li
-          className="w-20 z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute left-4 custom-transition"
-          style={{
-            transform: `translateX(${bubblePosition}px)`,
-            transition: `transform .3s cubic-bezier(.34,1.56,.64,1)`,
-          }}
-        ></li>
-      </ul>
-    </nav>
+    <ul className={ulClasses} style={{ position: 'relative' }}>
+      <li
+        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`}
+        onClick={() => handleItemClick('Home', 0)}
+      >
+        Home
+      </li>
+      <li
+        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
+        onClick={() => handleItemClick('About', 117)}
+      >
+        About
+      </li>
+      <li
+        className={`py-4 z-10 px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
+        onClick={() => handleItemClick('Projects', 240)}
+      >
+        Projects
+      </li>
+      <li
+        className="w-20 left-4 z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute custom-transition"
+        style={{
+          right: 'auto',
+          transform: `translateX(${bubblePosition}px)`,
+          transition: `transform .3s cubic-bezier(.34,1.56,.64,1)`,
+        }}
+      ></li>
+    </ul>
+  </nav>
   );
 }
