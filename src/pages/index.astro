@@ -3,25 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import json from '../../dictionaries/data.json'
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Nick Golitsyn | Portfolio">
 	<main class="max-w-screen-xl mx-8" id="home">
 		<div class="h-96 flex justify-center items-end">
 			<div class="mb-12">
 				<h1 class="text-4xl text-center font-semibold">Hello. I am Nick,</h1>
-				<p class="text-center text-3xl font-medium">A Frontend Web Developer.</p>
+				<h1 class="text-center text-3xl font-medium">A Frontend Web Developer.</p>
 			</div>
 		</div>
 		<div>
 			<h2 class="text-xl font-medium mb-2" id="about">About</h2>
-			<p class="text-gray-500">
-				I'm a 21 year old developer living in Germany. I discovered my passion for coding after seeing my brother do it. I fell in love with using my creativity to build things for the web. Through persistence, self-discipline, and commitment, I achieved my goal of becoming a frontend developer. What kept me on this journey is that I always find learning new things exciting and facing unfamiliar challenges. In addition to coding, I enjoy building side projects because it allows me to explore my creativity and accomplish exciting things.
-			</p>
+			<div class="flex flex-col gap-2">
+				<p class="text-gray-500">
+					I’m a 21 year old front-end web developer, with a passion for creating captivating and user-friendly websites. My journey began with college, personal projects and freelance work, and over the years, I have learned to constantly refine my skills and stay current with the latest technologies. Fluent in both English and Russian, I completed a 4-year diploma in web development at IThub College (Moscow) in June 2023, which has equipped me with a solid foundation in programming languages and best practices. In January I completed a 10-week data analysis bootcamp at Cambridge Spark.
+				</p>
+				<p class="text-gray-500">
+					While currently based in Norfolk, UK, I am open to relocation for an opportunity that aligns with my career aspirations. I am excited about joining a forward-thinking team where I can contribute my skills and continue to, embark on continuous learning, and advance in my professional journey. With my dedication and education, I am confident in thriving as a web developer and making a valuable contribution to any team.	
+				</p>
+			</div>
 		</div>
 		<div class="mt-10">
 			<h2 class="text-xl font-medium mb-2">Skills</h2>
 			<div class="flex flex-wrap gap-3">
 				{json.skills.map((item) => (
-					<p class="bg-gray-100 text-gray-500 px-3 py-1 border border-gray-300 rounded-sm">{item}</p>
+					<p class="bg-gray-100 text-gray-500 text-sm px-3 py-1 border border-gray-300 rounded-sm">{item}</p>
 				))}
 			</div>
 		</div>
@@ -51,7 +56,7 @@ import json from '../../dictionaries/data.json'
 						<p class="text-gray-500">{item.description}</p>
 						<div class="flex flex-wrap gap-3 mt-3">
 							{item.stack.map((stackItem) => (
-								<p class="bg-gray-100 text-gray-500 px-3 py-1 border border-gray-300 rounded-sm">{stackItem}</p>
+								<p class="bg-gray-100 text-gray-500 text-sm px-3 py-1 border border-gray-300 rounded-sm">{stackItem}</p>
 							))}
 						</div>
 					</div>
@@ -60,12 +65,12 @@ import json from '../../dictionaries/data.json'
 		</div>
 		<div class="mt-10">
 			<h2 class="text-xl font-medium mb-2" id="projects">Projects</h2>
-			<div class="grid grid-cols-2 gap-1">
+			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 				{json.projects.map((item) => (
 					<div class="w-full bg-slate-100 border border-gray-300 rounded-md px-5 py-4 flex flex-col gap-2">
 						<div class="flex justify-between">
 							<h3>{item.title}</h3>
-							<div class="flex gap-2">
+							<div class="flex gap-4">
 								<a href={item.git} target="_blank">
 									<img class="max-h-6 h-6 max-w-6" src="/github.svg" alt="github logo" />
 								</a>

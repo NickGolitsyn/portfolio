@@ -4,28 +4,37 @@
     "Next.js", 
     "JavaScript", 
     "TypeScript", 
+    "Astro",
     "HTML",
     "CSS",
     "Sass",
     "Tailwind",
-    "Material-UI",
     "Git",
-    "Framer-Motion",
-    "Firebase",
-    "Jira",
-    "Cypress",
-    "Playwright",
-    "Storybook",
-    "Styled-Components",
-    "Zustand",
-    "GraphQL",
     "GitHub",
+    "Framer-Motion",
+    "REST APIs",
+    "GraphQL",
     "Web Accessibility",
-    "Nest.js",
-    "Postman",
-    "Insomnia",
-    "Scrum",
-    "Bitbucket"
+    "Python",
+    "Flask",
+    "Pandas",
+    "SQL",
+    "MongoDB",
+    "MySQL",
+    "Firebase",
+    "Swift",
+    "Dart",
+    "Flutter",
+    "Web Design",
+    "Figma",
+    "Adobe Illustrator",
+    "Adobe InDesign",
+    "Adobe Photoshop",
+    "UX/UI",
+    "SEO",
+    "Vercel",
+    "Netlify",
+    "Excel"
   ],
   "education": [
     {
@@ -41,16 +50,28 @@
   ],
   "experience": [
     {
-      "date": "Oct 2023 - Jan 2024",
-      "title": "Data Analysis Bootcamp – Cambridge Spark",
-      "description": "Building upon my existing knowledge in Python, I further strengthened my skills in this versatile language during the 10-week Data Analysis Bootcamp at Cambridge Spark. The program delved into Pandas, providing essential skills for data processing and analysis. As the journey progressed, I explored data visualization using Pandas, Seaborn, and Bokeh. A module on Maths for Data Analysis enhanced my understanding of crucial mathematical concepts. The course emphasized effective storytelling with data, enabling me to craft engaging narratives for diverse audiences.A highlight was the practical Hackathon, offering a hands-on experience in applying newly acquired skills. The bootcamp, covering statistical programming, data mining, SQL, and Python, has significantly enriched my data analysis capabilities.",
-      "stack": ["JavaScript", "Firebase", "React"]
+      "date": "Jan 2024",
+      "title": "Python Mail Bot",
+      "description": "Developed a Python script facilitating bulk email distribution, specifically designed to assist in sending collaboration offers to numerous companies.",
+      "stack": ["Python"]
     },
     {
-      "date": "Sep 2019 - Jun 2023",
-      "title": "IThub College",
-      "description": "During my four-year journey at IThub College, I pursued a 4-year diploma in front-end web development, accompanied by certifications like IC3 Computing Fundamentals and Microsoft's Introduction to Programming Using JavaScript. My education covered a diverse range of topics relevant to Web Development, Data Analysis, and other IT roles. Notable subjects include UX/UI principles, database management (SQL, PostgreSQL, MySQL), and programming languages such as JavaScript, Python, and Dart (Flutter). In addition, I gained insights into project management, testing, and DevOps, enhancing my ability to contribute effectively to various IT domains.",
-      "stack": ["JavaScript", "Firebase", "React"]
+      "date": "Dec 2023",
+      "title": "Christmas card shop website",
+      "description": "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage.",
+      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
+    },
+    {
+      "date": "Aug - Sep 2023",
+      "title": "Chimeras (Blog website)",
+      "description": "Executed a freelance project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling.",
+      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
+    },
+    {
+      "date": "Dec 2023",
+      "title": "Christmas card shop website",
+      "description": "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage.",
+      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
     }
   ],
   "projects": [
