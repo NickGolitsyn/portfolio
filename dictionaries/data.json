@@ -15,6 +15,7 @@
     "REST APIs",
     "GraphQL",
     "Web Accessibility",
+    "PWA",
     "Python",
     "Flask",
     "Pandas",
@@ -64,30 +65,61 @@
     {
       "date": "Aug - Sep 2023",
       "title": "Chimeras (Blog website)",
-      "description": "Executed a freelance project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling.",
-      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
+      "description": "Completed a project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling.",
+      "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"]
     },
     {
-      "date": "Dec 2023",
-      "title": "Christmas card shop website",
-      "description": "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage.",
-      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
+      "date": "Sep - Oct 2022",
+      "title": "Coin collection sorting",
+      "description": "Worked on a coin collection, undertaking tasks such as cleaning, sorting, and cataloguing coins for a sales database. Additionally, physically organized coins into designated bags for enhanced sorting efficiency.",
+      "stack": ["Excel", "SQL", "Database management"]
     }
   ],
   "projects": [
     {
-      "title": "Data Analysis Bootcamp",
-      "description": "Building upon my existing knowledge in Python, I further strengthened my skills in this versatile language during the 10-week Data Analysis Bootcamp at Cambridge Spark. The program delved into Pandas, providing essential skills for data processing and analysis.",
-      "stack": ["JavaScript", "Firebase", "React"],
-      "git": "https://github.com/",
-      "url": "https://nickgolitsyn.com/"
+      "title": "Christmas card shop website",
+      "description": "Responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels.",
+      "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"],
+      "url": "https://glebfeels.com/"
     },
     {
-      "title": "IThub College",
-      "description": "During my four-year journey at IThub College, I pursued a 4-year diploma in front-end web development, accompanied by certifications like IC3 Computing Fundamentals and Microsoft's Introduction to Programming Using JavaScript.",
-      "stack": ["JavaScript", "Firebase", "React"],
-      "git": "https://github.com/",
-      "url": "https://nickgolitsyn.com/"
-    }
+      "title": "Portfolio website",
+      "description": "My old portfolio website.",
+      "stack": ["Astro", "TypeScript", "React", "Storyblok", "Tailwind", "Framer-Motion"],
+      "git": "https://github.com/NickGolitsyn/portfoliov2/",
+      "url": "https://portfoliov2-nickgolitsyn.vercel.app/"
+    },
+    {
+      "title": "Chimeras (Blog website)",
+      "description": "Blog website with a unique content hierarchy.",
+      "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"],
+      "git": "https://github.com/NickGolitsyn/astro-decap",
+      "url": "https://chimeras-blog.netlify.app/"
+    },
+    {
+      "title": "Vertushka",
+      "description": "Board game online spinner.",
+      "stack": ["JavaScript", "PWA", "HTML", "CSS"],
+      "url": "https://vertushka2.netlify.app/"
+    },
+    {
+      "title": "Countdown",
+      "description": "Website that counts down to a specific date.",
+      "stack": ["React"],
+      "git": "https://github.com/NickGolitsyn/countdown",
+      "url": "https://countdownng.netlify.app/"
+    },
+    {
+      "title": "Sergey Kudrin",
+      "description": "Digital exhibition website for a photographer, displaying his works.",
+      "stack": ["JavaScript", "HTML", "CSS"],
+      "url": "https://kudrin.netlify.app/"
+    },
+    {
+      "title": "TRVL",
+      "description": "Skeleton one page website for tourists to find out information about their travel destinations.",
+      "stack": ["JavaScript", "HTML", "CSS"],
+      "url": "https://trvl.netlify.app/"
+    }  
   ] 
 }

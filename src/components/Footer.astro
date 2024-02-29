@@ -1,26 +1,30 @@
-<footer class="max-w-screen-xl mx-8 border-t mt-10">
+---
+import { Image } from "astro:assets";
+---
+
+<footer class="max-w-screen-xl mx-8 xl:mx-auto border-t mt-10">
   <div class="my-4 flex justify-between">
-    <p class="text-gray-500 text-sm font-light">&copy; 2024 Nick Golitsyn</p>
-    <div class="text-sm text-gray-500">
+    <p class="text-neutral-500 text-sm font-light">&copy; 2024 Nick Golitsyn</p>
+    <div class="text-sm text-neutral-500 flex">
       <ul class="flex items-center gap-3">
         <li>
           <a href="https://www.linkedin.com/in/nickgolitsyn/" target="_blank">
-            <img class="max-h-4 max-w-4" src="/in.svg" alt="linkedin logo" />
+            <Image class="max-h-4 max-w-4" src="/in.svg" alt="linkedin logo" width={16} height={16} />
           </a>
         </li>
         <li>
           <a href="mailto:golitsynnick@gmail.com" target="_blank">
-            <img class="max-h-4 max-w-4" src="/mail.svg" alt="mail" />
+            <Image class="max-h-4 max-w-4" src="/mail.svg" alt="mail" width={16} height={16} />
           </a>
         </li>
         <li>
           <a href="tel:+447403525139" target="_blank">
-            <img class="max-h-4 max-w-4" src="/tel.svg" alt="telephone" />
+            <Image class="max-h-4 max-w-4" src="/tel.svg" alt="telephone" width={16} height={16} />
           </a>
         </li>
         <li>
           <a href="https://github.com/nickgolitsyn/" target="_blank">
-            <img class="max-h-4 max-w-4" src="/github.svg" alt="github logo" />
+            <Image class="max-h-4 max-w-4" src="/github.svg" alt="github logo" width={16} height={16} />
           </a>
         </li>
       </ul>

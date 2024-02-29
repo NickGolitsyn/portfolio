@@ -24,7 +24,7 @@ export default function Navbar() {
   }, []);
 
   const ulClasses = `flex transition-all z-8 h-14 items-center border-opacity-70 ${
-    scrolled ? 'bg-gray-500 border bg-opacity-20 border-gray-400  backdrop-blur-md' : 'backdrop-blur-none'
+    scrolled ? 'bg-neutral-500 border bg-opacity-20 border-neutral-400  backdrop-blur-md' : 'backdrop-blur-none'
   } border-opacity-70 w-fit mx-auto rounded-full`;
 
   const handleItemClick = (itemName: string, positionSmall: number, positionLarge: number) => {
@@ -44,7 +44,7 @@ export default function Navbar() {
           onClick={() => handleItemClick('Home', 0, 0)}
         >
         <a
-          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-gray-500'}`} 
+          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-neutral-500'}`} 
           href="#home"
         >
             Home
@@ -55,7 +55,7 @@ export default function Navbar() {
           onClick={() => handleItemClick('About', 103, 120)}
         >
           <a 
-            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-gray-500'}`}
+            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-neutral-500'}`}
             href="#about"
           >
             About
@@ -66,14 +66,14 @@ export default function Navbar() {
           onClick={() => handleItemClick('Projects', 214, 246)}
         >
           <a 
-            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-gray-500'}`}
+            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-neutral-500'}`}
             href="#projects"
           >
             Projects
           </a>
         </li>
         <li
-          className="w-20 left-[10px] sm:left-[17px] z-9 rounded-full bg-gray-700 opacity-40 h-9 absolute custom-transition"
+          className="w-20 left-[10px] sm:left-[17px] z-9 rounded-full bg-neutral-700 opacity-40 h-9 absolute custom-transition"
           style={{
             right: 'auto',
             transform: `translateX(${bubblePosition}px)`,

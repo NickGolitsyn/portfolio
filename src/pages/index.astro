@@ -1,10 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import json from '../../dictionaries/data.json'
+import { Image } from 'astro:assets';
 ---
 
-<Layout title="Nick Golitsyn | Portfolio">
-	<main class="max-w-screen-xl mx-8" id="home">
+<Layout title="Portfolio | Nick Golitsyn">
+	<main class="max-w-screen-xl mx-8 xl:mx-auto" id="home">
 		<div class="h-96 flex justify-center items-end">
 			<div class="mb-12">
 				<h1 class="text-4xl text-center font-semibold">Hello. I am Nick,</h1>
@@ -14,10 +15,10 @@ import json from '../../dictionaries/data.json'
 		<div>
 			<h2 class="text-xl font-medium mb-2" id="about">About</h2>
 			<div class="flex flex-col gap-2">
-				<p class="text-gray-500">
+				<p class="text-neutral-500">
 					I’m a 21 year old front-end web developer, with a passion for creating captivating and user-friendly websites. My journey began with college, personal projects and freelance work, and over the years, I have learned to constantly refine my skills and stay current with the latest technologies. Fluent in both English and Russian, I completed a 4-year diploma in web development at IThub College (Moscow) in June 2023, which has equipped me with a solid foundation in programming languages and best practices. In January I completed a 10-week data analysis bootcamp at Cambridge Spark.
 				</p>
-				<p class="text-gray-500">
+				<p class="text-neutral-500">
 					While currently based in Norfolk, UK, I am open to relocation for an opportunity that aligns with my career aspirations. I am excited about joining a forward-thinking team where I can contribute my skills and continue to, embark on continuous learning, and advance in my professional journey. With my dedication and education, I am confident in thriving as a web developer and making a valuable contribution to any team.	
 				</p>
 			</div>
@@ -26,20 +27,20 @@ import json from '../../dictionaries/data.json'
 			<h2 class="text-xl font-medium mb-2">Skills</h2>
 			<div class="flex flex-wrap gap-3">
 				{json.skills.map((item) => (
-					<p class="bg-gray-100 text-gray-500 text-sm px-3 py-1 border border-gray-300 rounded-sm">{item}</p>
+					<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{item}</p>
 				))}
 			</div>
 		</div>
 		<div class="mt-10">
 			<h2 class="text-xl font-medium mb-2">Education</h2>
 			{json.education.map((item) => (
-				<div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
+				<div class="flex flex-col md:flex-row gap-1 md:gap-5 mb-5">
 					<div>
-						<p class="w-max text-gray-500">{item.date}</p>
+						<p class="w-max text-neutral-500">{item.date}</p>
 					</div>
 					<div> 
 						<h3 class="font-medium mb-1">{item.title}</h3>
-						<p class="text-gray-500">{item.description}</p>
+						<p class="text-neutral-500">{item.description}</p>
 					</div>
 				</div>
 			))}
@@ -47,16 +48,17 @@ import json from '../../dictionaries/data.json'
 		<div class="mt-10">
 			<h2 class="text-xl font-medium mb-2">Experience</h2>
 			{json.experience.map((item) => (
-				<div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
-					<div>
-						<p class="w-max text-gray-500">{item.date}</p>
+				// <div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
+				<div class="grid grid-cols-1 md:grid-cols-5 gap-1 md:gap-5 mb-5">
+					<div class="w-max">
+						<p class="text-neutral-500">{item.date}</p>
 					</div>
-					<div> 
+					<div class="md:col-span-4"> 
 						<h3 class="font-medium mb-1">{item.title}</h3>
-						<p class="text-gray-500">{item.description}</p>
+						<p class="text-neutral-500">{item.description}</p>
 						<div class="flex flex-wrap gap-3 mt-3">
 							{item.stack.map((stackItem) => (
-								<p class="bg-gray-100 text-gray-500 text-sm px-3 py-1 border border-gray-300 rounded-sm">{stackItem}</p>
+								<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
 							))}
 						</div>
 					</div>
@@ -67,19 +69,30 @@ import json from '../../dictionaries/data.json'
 			<h2 class="text-xl font-medium mb-2" id="projects">Projects</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 				{json.projects.map((item) => (
-					<div class="w-full bg-slate-100 border border-gray-300 rounded-md px-5 py-4 flex flex-col gap-2">
-						<div class="flex justify-between">
-							<h3>{item.title}</h3>
-							<div class="flex gap-4">
-								<a href={item.git} target="_blank">
-									<img class="max-h-6 h-6 max-w-6" src="/github.svg" alt="github logo" />
-								</a>
-								<a href={item.url} target="_blank">
-									<img class="max-h-6 h-6 max-w-6" src="/url.svg" alt="github logo" />
-								</a>
+					<div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-100 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5">
+						<div class="flex flex-col gap-2">
+							<div class="flex justify-between">
+								<h3 class="font-medium">{item.title}</h3>
+								<div class="flex gap-4">
+									{item?.git && 
+										<a href={item.git} target="_blank">
+											<Image class="max-h-6 h-6 max-w-6" src="/github.svg" alt="github logo" width={24} height={24} />
+										</a>
+									}
+									{item?.url &&
+										<a href={item.url} target="_blank">
+											<Image class="max-h-6 h-6 max-w-6 text-red-500" src="/url.svg" alt="github logo" width={24} height={24} />
+										</a>
+									}
+								</div>
 							</div>
+							<p class="text-neutral-500">{item.description}</p>
 						</div>
-						<p class="text-gray-500">{item.description}</p>
+						<div class="flex flex-wrap gap-3">
+							{item.stack.map((stackItem) => (
+								<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
+							))}
+						</div>
 					</div>
 				))}
 			</div>
