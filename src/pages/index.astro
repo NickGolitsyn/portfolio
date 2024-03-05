@@ -1,110 +1,165 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import json from '../../dictionaries/data.json'
-import { Image } from 'astro:assets';
+import json from '../../data/data.json'
+import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import { GitHubIcon } from '../components/icons/GitHubIcon'
+import { LinkedInIcon } from '../components/icons/LinkedInIcon'
 ---
 
 <Layout title="Portfolio | Nick Golitsyn">
-	<main class="max-w-screen-xl mx-8 xl:mx-auto" id="home">
-		<div class="h-96 flex justify-center items-end">
-			<div class="mb-12">
-				<h1 class="text-4xl text-center font-semibold">Hello. I am Nick,</h1>
-				<h1 class="text-center text-3xl font-medium">A Front-end Web Developer.</p>
+	<main class="max-w-screen-md mx-8 md:mx-auto" id="home">
+		<div class="pt-32"></div>
+		<section class="w-full space-y-8 print:space-y-6">
+			<div class="flex items-center justify-between">
+				<div class="flex-1 space-y-1.5">
+					<h1 class="text-2xl font-bold text-neutral-950">Nick Golitsyn</h1>
+					<p class="text-pretty text-sm text-neutral-500">
+						Front-end Web Developer focused on building products with extra attention to detail.
+					</p>
+					<p class="items-center text-pretty font-mono text-xs text-neutral-500">
+						<a
+							class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
+							href={json.contact.locationLink}
+							target="_blank"
+						>
+							<GlobeIcon className="size-3" />
+							{json.contact.location}
+						</a>
+					</p>
+					<div class="flex gap-x-2 pt-1 text-sm text-neutral-500 print:hidden">
+						{json.contact.email ? (
+							<button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
+								<a href={`mailto:${json.contact.email}`}>
+									<MailIcon className="size-4 m-auto" />
+								</a>
+							</button>
+						) : null}
+						{json.contact.tel ? (
+							<button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
+								<a href={`tel:${json.contact.tel}`}>
+									<PhoneIcon className="size-4 m-auto" />
+								</a>
+							</button>
+						) : null}
+						{json.contact.git ? (
+							<button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
+								<a href={`${json.contact.git}`}>
+									<GitHubIcon className="size-4 m-auto" />
+								</a>
+							</button>
+						) : null}
+						{json.contact.linkedIn ? (
+							<button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
+								<a href={`${json.contact.linkedIn}`}>
+									<LinkedInIcon className="size-4 m-auto" />
+								</a>
+							</button>
+						) : null}
+					</div>
+					<div class="hidden flex-col gap-x-1 text-sm text-neutral-500 print:flex">
+						{json.contact.email ? (
+							<a href={`mailto:${json.contact.email}`}>
+								<span>{json.contact.email}</span>
+							</a>
+						) : null}
+						{json.contact.tel ? (
+							<a href={`tel:${json.contact.tel}`}>
+								<span>{json.contact.tel}</span>
+							</a>
+						) : null}
+					</div>
+				</div>
+
+				<!-- <Avatar className="size-28">
+					<AvatarImage alt={json.name} src={json.avatarUrl} />
+					<AvatarFallback>{json.initials}</AvatarFallback>
+				</Avatar> -->
 			</div>
-		</div>
-		<div>
-			<h2 class="text-xl font-medium mb-2" id="about">About</h2>
-			<div class="flex flex-col gap-2">
-				<p class="text-neutral-500">
+		</section>
+		<section class="mt-10">
+			<h2 class="text-xl font-medium mb-2 text-neutral-950" id="about">About</h2>
+			<div class="flex flex-col gap-2 text-neutral-500 text-sm">
+				<p>
 					I’m a 21 year old front-end web developer, with a passion for creating captivating and user-friendly websites. My journey began with college, personal projects and freelance work, and over the years, I have learned to constantly refine my skills and stay current with the latest technologies. Fluent in both English and Russian, I completed a 4-year diploma in web development at IThub College (Moscow) in June 2023, which has equipped me with a solid foundation in programming languages and best practices. In January I completed a 10-week data analysis bootcamp at Cambridge Spark.
 				</p>
-				<p class="text-neutral-500">
+				<p>
 					While currently based in Norfolk, UK, I am open to relocation for an opportunity that aligns with my career aspirations. I am excited about joining a forward-thinking team where I can contribute my skills and continue to, embark on continuous learning, and advance in my professional journey. With my dedication and education, I am confident in thriving as a web developer and making a valuable contribution to any team.	
 				</p>
 			</div>
-		</div>
+		</section>
+		<section class="mt-10">
 		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2">Contacts</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-				<p>LinkedIn: <a class="underline text-sky-600" href="https://www.linkedin.com/in/nickgolitsyn/">linkedin.com/in/nickgolitsyn</a></p>
-				<p>Email: <a class="underline text-sky-600" href="mailto:golitsynnick@gmail.com">golitsynnick@gmail.com</a></p>
-				<p>Phone number: <a class="underline text-sky-600" href="tel:+447403525139">+44 7403 525139</a></p>
-				<p>GitHub: <a class="underline text-sky-600" href="https://www.linkedin.com/in/nickgolitsyn/">linkedin.com/in/nickgolitsyn</a></p>
-			</div>
-		</div>
-		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2">Skills</h2>
+			<h2 class="text-xl font-medium mb-2 text-neutral-950">Skills</h2>
 			<div class="flex flex-wrap gap-3">
 				{json.skills.map((item) => (
-					<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{item}</p>
+					<p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">{item}</p>
 				))}
 			</div>
-		</div>
-		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2">Education</h2>
-			{json.education.map((item) => (
-				<div class="flex flex-col md:flex-row gap-1 md:gap-5 mb-5">
-					<div>
-						<p class="w-max text-neutral-500">{item.date}</p>
-					</div>
+		</section>
+		<section class="mt-10">
+			<h2 class="text-xl font-medium mb-2 text-neutral-950">Education</h2>
+			<div class="flex flex-col gap-5">
+				{json.education.map((item) => (
 					<div> 
-						<h3 class="font-medium mb-1">{item.title}</h3>
-						<p class="text-neutral-500">{item.description}</p>
+						<div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
+							<h3 class="font-medium text-neutral-950">{item.title}</h3>
+							<p class="text-neutral-500 text-sm">{item.date}</p>
+						</div>
+						<p class="text-neutral-500 text-sm">{item.description}</p>
 					</div>
-				</div>
-			))}
-		</div>
-		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2">Experience</h2>
-			{json.experience.map((item) => (
-				// <div class="flex flex-col md:flex-row gap-2 md:gap-5 mb-5">
-				<div class="grid grid-cols-1 md:grid-cols-5 gap-1 md:gap-5 mb-5">
-					<div class="w-max">
-						<p class="text-neutral-500">{item.date}</p>
-					</div>
-					<div class="md:col-span-4"> 
-						<h3 class="font-medium mb-1">{item.title}</h3>
-						<p class="text-neutral-500">{item.description}</p>
-						<div class="flex flex-wrap gap-3 mt-3">
+				))}
+			</div>
+		</section>
+		<section class="mt-10">
+			<h2 class="text-xl font-medium mb-2 text-neutral-950">Experience</h2>
+			<div class="flex flex-col gap-5">
+				{json.experience.map((item) => (
+					<div>
+						<div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
+							<h3 class="font-medium text-neutral-950">{item.title}</h3>
+							<p class="text-neutral-500 text-sm">{item.date}</p>
+						</div>
+						<p class="text-neutral-500 text-sm">{item.description}</p>
+						<div class="flex flex-wrap gap-2 mt-1 md:mt-2">
 							{item.stack.map((stackItem) => (
-								<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
+								<p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
 							))}
 						</div>
 					</div>
-				</div>
-			))}
-		</div>
-		<div class="mt-10">
-			<h2 class="text-xl font-medium mb-2" id="projects">Projects</h2>
+				))}
+			</div>
+		</section>
+		<section class="mt-10 print-force-new-page">
+			<h2 class="text-xl font-medium mb-2 text-neutral-950" id="projects">Projects</h2>
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
 				{json.projects.map((item) => (
 					<div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-100 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5">
 						<div class="flex flex-col gap-2">
-							<div class="flex justify-between">
-								<h3 class="font-medium">{item.title}</h3>
-								<div class="flex gap-4">
-									{item?.git && 
-										<a href={item.git} target="_blank">
-											<Image class="max-h-6 h-6 max-w-6" src="/github.svg" alt="github logo" width={24} height={24} />
-										</a>
-									}
-									{item?.url &&
-										<a href={item.url} target="_blank">
-											<Image class="max-h-6 h-6 max-w-6 text-red-500" src="/url.svg" alt="github logo" width={24} height={24} />
-										</a>
-									}
-								</div>
+							<div class="flex items-center gap-x-2">
+								{item?.url ? 
+									<h3 class="font-medium text-neutral-950 hover:underline">
+										<a target="_blank" href={item?.url}>{item.title}</a>
+									</h3>
+								:
+									<h3 class="font-medium">{item.title}</h3>
+								}
+								{item?.url &&
+									<span class="relative flex size-2 print:hidden">
+										<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75"></span>
+										<span class="relative inline-flex rounded-full size-2 bg-lime-500"></span>
+									</span>
+								}
 							</div>
-							<p class="text-neutral-500">{item.description}</p>
+							<p class="text-neutral-500 text-sm">{item.description}</p>
 						</div>
 						<div class="flex flex-wrap gap-3">
 							{item.stack.map((stackItem) => (
-								<p class="bg-neutral-100 text-neutral-500 text-sm px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
+								<p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">{stackItem}</p>
 							))}
 						</div>
 					</div>
 				))}
 			</div>
-		</div>
+		</section>
 	</main>
 </Layout>

@@ -37,7 +37,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="mt-4 sm:mt-8 w-screen flex justify-center fixed">
+    <nav className="mt-4 z-10 sm:mt-8 w-screen flex justify-center fixed print:hidden">
       <ul className={ulClasses} style={{ position: 'relative' }}>
         <li
           className='z-10'

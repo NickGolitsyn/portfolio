@@ -1,4 +1,12 @@
 {
+  "contact": {
+    "tel": "+44 7403 525139",
+    "email": "golitsynnick@gmail.com",
+    "git": "https://github.com/NickGolitsyn/",
+    "linkedIn": "https://linkedin.com/in/nickgolitsyn",
+    "locationLink": "https://www.google.com/maps/place/Norfolk",
+    "location": "Norfolk, United Kingdom, GMT"
+  },
   "skills": [
     "React", 
     "Next.js", 
