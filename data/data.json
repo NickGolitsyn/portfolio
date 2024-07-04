@@ -63,6 +63,12 @@
   ],
   "experience": [
     {
+      "date": "Oct 2023 - Apr 2024",
+      "title": "Orthodox parish website",
+      "description": "Developed a website for a local orthodox parish.",
+      "stack": ["NextJS", "TypeScript", "Tailwind", "Sanity.io"]
+    },
+    {
       "date": "Jan 2024",
       "title": "Python Mail Bot",
       "description": "Developed a Python script facilitating bulk email distribution, specifically designed to assist in sending collaboration offers to numerous companies.",
