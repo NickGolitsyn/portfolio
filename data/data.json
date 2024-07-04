@@ -96,7 +96,7 @@
   "projects": [
     {
       "title": "Euro 2024 predictor",
-      "description": "Website with statistics from a Euro 2024 prediction game.",
+      "description": "Website with statistics for a Euro 2024 prediction game.",
       "stack": ["NextJS", "Google Sheets API", "Tailwind", "shadcn/ui"],
       "url": "https://euro2024.nickgolitsyn.com/"
     },
