@@ -43,7 +43,11 @@
     "SEO",
     "Vercel",
     "Netlify",
-    "Excel"
+    "Excel",
+    "Google Sheets API",
+    "Drizzle",
+    "PostgreSQL",
+    "Sanity.io"
   ],
   "education": [
     {
@@ -84,6 +88,18 @@
     }
   ],
   "projects": [
+    {
+      "title": "Euro 2024 predictor",
+      "description": "Website with statistics from a Euro 2024 prediction game.",
+      "stack": ["NextJS", "Google Sheets API", "Tailwind", "shadcn/ui"],
+      "url": "https://euro2024.nickgolitsyn.com/"
+    },
+    {
+      "title": "Orthodox parish website",
+      "description": "Website for an Romanian Orthodox Parish in based Norfolk.",
+      "stack": ["NextJS", "TypeScript", "Tailwind", "Sanity.io"],
+      "url": "https://www.parohianorwich.org/en"
+    },
     {
       "title": "Christmas card shop website",
       "description": "Responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels.",
