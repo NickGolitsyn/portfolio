@@ -64,6 +64,14 @@ export default function Carousel() {
                 setMustFinish(true);
                 setDuration(FAST_DURATION);
               }}
+              onTouchStart={() => {
+                setMustFinish(true);
+                setDuration(SLOW_DURATION);
+              }}
+              onTouchEnd={() => {
+                setMustFinish(true);
+                setDuration(FAST_DURATION);
+              }}
             >
               <div className="absolute inset-0 rounded-md overflow-hidden after:absolute after:pointer-events-none after:w-full after:h-full after:-left-full hover:after:left-full hover:after:duration-1000 hover:after:transition-all after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-transparent after:-skew-x-12"></div>
               <img
