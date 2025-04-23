@@ -7,11 +7,19 @@
     "locationLink": "https://www.google.com/maps/place/Norfolk",
     "location": "Norfolk, United Kingdom, GMT"
   },
+  "carousel": [
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLq1BDWfoOyg0TGDX8RYm2lVW9SQre3HIp1JNd",
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLwAnCQ7JVMlbprghj7nvHL8FdOoJS6iPDKYum",
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJL7Msy6tHWc8It4CZKRuDzSn51QNlG6px2m7Vi",
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJL91BSNibwegzxjXHqQcLDfBNUrRWlTasEJ7uV",
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLerr6xW5wGOfxBMe8FJLIZ7j9RAlvCHSi3ybu",
+    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLyYQI06tZF3Lz2avThUWK19GcdJQYOBsnSlHV"
+  ],
   "skills": [
-    "React", 
-    "Next.js", 
-    "JavaScript", 
-    "TypeScript", 
+    "React",
+    "Next.js",
+    "JavaScript",
+    "TypeScript",
     "Astro",
     "HTML",
     "CSS",
@@ -24,6 +32,10 @@
     "GraphQL",
     "Web Accessibility",
     "PWA",
+    "PHP",
+    "Laravel",
+    "WordPress",
+    "Cwicly",
     "Python",
     "Flask",
     "Pandas",
@@ -62,6 +74,20 @@
     }
   ],
   "experience": [
+    {
+      "date": "Oct 2024 - Present",
+      "title": "Strange Tech",
+      "description": "Working as a Frontend Developer.",
+      "stack": [
+        "React",
+        "TypeScript",
+        "Flutter",
+        "PHP",
+        "Laravel",
+        "WordPress",
+        "Cwicly"
+      ]
+    },
     {
       "date": "Oct 2023 - Apr 2024",
       "title": "Orthodox parish website",
@@ -110,12 +136,19 @@
       "title": "Christmas card shop website",
       "description": "Responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels.",
       "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"],
-      "url": "https://glebfeels.com/"
+      "url": "https://cards.glebfeels.com/"
     },
     {
       "title": "Portfolio website",
       "description": "My old portfolio website.",
-      "stack": ["Astro", "TypeScript", "React", "Storyblok", "Tailwind", "Framer-Motion"],
+      "stack": [
+        "Astro",
+        "TypeScript",
+        "React",
+        "Storyblok",
+        "Tailwind",
+        "Framer-Motion"
+      ],
       "git": "https://github.com/NickGolitsyn/portfoliov2/",
       "url": "https://portfoliov2-nickgolitsyn.vercel.app/"
     },
@@ -150,6 +183,6 @@
       "description": "Skeleton one page website for tourists to find out information about their travel destinations.",
       "stack": ["JavaScript", "HTML", "CSS"],
       "url": "https://trvl.netlify.app/"
-    }  
-  ] 
+    }
+  ]
 }
