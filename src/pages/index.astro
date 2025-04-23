@@ -8,10 +8,11 @@ import Carousel from "../components/Carousel";
 ---
 
 <Layout title="Portfolio | Nick Golitsyn">
-  <main class="" id="home">
+  <main class="">
     <div class="pt-32 print:hidden"></div>
     <section
       class="w-full space-y-8 print:space-y-6 max-w-screen-md mx-8 md:mx-auto"
+      id="home"
     >
       <div class="flex items-center justify-between">
         <div class="flex-1 space-y-1.5">
@@ -96,10 +97,8 @@ import Carousel from "../components/Carousel";
 				</Avatar> -->
       </div>
     </section>
-    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-      <h2 class="text-xl font-medium mb-2 text-neutral-950" id="about">
-        About
-      </h2>
+    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto" id="about">
+      <h2 class="text-xl font-medium mb-2 text-neutral-950">About</h2>
       <div class="flex flex-col gap-2 text-neutral-500 text-sm">
         <p>
           I’m a 22-year-old web developer and designer with a passion for
@@ -149,10 +148,9 @@ import Carousel from "../components/Carousel";
       </div>
       <section
         class="mt-10 print-force-new-page max-w-screen-md mx-8 md:mx-auto"
+        id="projects"
       >
-        <h2 class="text-xl font-medium mb-2 text-neutral-950" id="projects">
-          Projects
-        </h2>
+        <h2 class="text-xl font-medium mb-2 text-neutral-950">Projects</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {
             json.projects.map((item) => (

@@ -1,86 +1,165 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
+interface NavItem {
+  id: string;
+  label: string;
+}
+
+const navItems: NavItem[] = [
+  { id: "home", label: "About" },
+  // { id: "about", label: "About" },
+  { id: "projects", label: "Projects" },
+];
 
 export default function Navbar() {
-  const [activeItem, setActiveItem] = useState<string>('Home');
-  const [bubblePosition, setBubblePosition] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState(navItems[0].id);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const navRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
-  const handleScroll = () => {
-    if (window.scrollY >= 40) {
-      setScrolled(true);
+  const getActiveItemPosition = () => {
+    if (!navRef.current) return { x: 0, width: 0 };
+
+    const activeIndex =
+      navItems.findIndex((item) => item.id === activeSection) + 1;
+    const activeButton = navRef.current.querySelector(
+      `button:nth-child(${activeIndex})`,
+    ) as HTMLElement | null;
+
+    return {
+      x: activeButton?.offsetLeft || 0,
+      width: activeButton?.offsetWidth || 0,
+    };
+  };
+
+  // Register section refs
+  useEffect(() => {
+    // Add a delay to ensure the DOM is fully loaded
+    const timer = setTimeout(() => {
+      navItems.forEach((item) => {
+        const element = document.getElementById(item.id);
+        if (element) {
+          sectionRefs.current[item.id] = element;
+        } else {
+          console.warn(`Section not found: ${item.id}`);
+        }
+      });
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Handle scroll to update active section and navbar appearance
+  useEffect(() => {
+    const handleScroll = () => {
+      // Update scroll state for navbar appearance
+      setHasScrolled(window.scrollY > 10);
+
+      if (isScrolling) return;
+
+      const scrollPosition = window.scrollY + 100; // Offset for better UX
+
+      // Find the current section
+      let currentSection = activeSection; // Keep current section by default
+
+      // Create entries array for logging
+      const sectionsInfo = [];
+
+      for (const item of navItems) {
+        const section = sectionRefs.current[item.id];
+        if (!section) continue;
+
+        const sectionTop = section.offsetTop;
+        const sectionBottom = sectionTop + section.offsetHeight;
+
+        sectionsInfo.push({
+          id: item.id,
+          top: sectionTop,
+          bottom: sectionBottom,
+          height: section.offsetHeight,
+          scrollPos: scrollPosition,
+        });
+
+        // Only update if we're actually within a section's bounds
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+          currentSection = item.id;
+        }
+      }
+
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+      }
+    };
+
+    // Initial call to set the correct active section on load - with delay
+    setTimeout(handleScroll, 500);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection, isScrolling]);
+
+  // Scroll to section when nav item is clicked
+  const scrollToSection = (id: string) => {
+    setIsScrolling(true);
+    setActiveSection(id);
+
+    const section = sectionRefs.current[id];
+    if (section) {
+      const offsetTop = section.offsetTop;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500);
     } else {
-      setScrolled(false);
+      console.warn(`Section element not found for: ${id}`);
+      // Release scroll lock if section not found
+      setTimeout(() => setIsScrolling(false), 500);
     }
   };
 
-  useEffect(() => {
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const ulClasses = `flex transition-all z-8 h-14 items-center border-opacity-70 ${
-    scrolled ? 'bg-neutral-500 border bg-opacity-20 border-neutral-400  backdrop-blur-md' : 'backdrop-blur-none'
-  } border-opacity-70 w-fit mx-auto rounded-full`;
-
-  const handleItemClick = (itemName: string, positionSmall: number, positionLarge: number) => {
-    setActiveItem(itemName);
-
-    // Adjust position based on screen size
-    const screenWidth = window.innerWidth;
-    const newPosition = screenWidth < 640 ? positionSmall : positionLarge;
-    setBubblePosition(newPosition);
-  };
-
   return (
-    <nav className="mt-4 z-10 sm:mt-8 w-screen flex justify-center fixed print:hidden">
-      <ul className={ulClasses} style={{ position: 'relative' }}>
-        <li
-          className='z-10'
-          onClick={() => handleItemClick('Home', 0, 0)}
-        >
-        <a
-          className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Home' ? 'text-white' : 'text-neutral-500'}`} 
-          href="#home"
-        >
-            Home
-          </a>
-        </li>
-        <li
-          className='z-10'
-          onClick={() => handleItemClick('About', 103, 120)}
-        >
-          <a 
-            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'About' ? 'text-white' : 'text-neutral-500'}`}
-            href="#about"
+    <nav
+      ref={navRef}
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center"
+    >
+      <div
+        className={`relative flex items-center rounded-[32px] p-2 transition-all duration-300 ${
+          hasScrolled
+            ? "bg-white/50 backdrop-blur-md shadow-md border border-gray-300"
+            : "bg-transparent border-transparent"
+        }`}
+      >
+        {navItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`relative px-6 py-2 text-base font-medium transition-colors z-10 ${
+              activeSection === item.id
+                ? "text-gray-700"
+                : "text-gray-500 hover:text-gray-600"
+            }`}
           >
-            About
-          </a>
-        </li>
-        <li
-          className='z-10'
-          onClick={() => handleItemClick('Projects', 214, 246)}
+            {item.label}
+          </button>
+        ))}
+
+        {/* Animated selection pill */}
+        <motion.div
+          className="absolute inset-0 z-0 flex items-center justify-center"
+          initial={false}
+          animate={getActiveItemPosition()}
+          transition={{ type: "spring", stiffness: 350, damping: 30 }}
         >
-          <a 
-            className={`py-4 select-none z-10 px-6 sm:px-8 mx-1 cursor-pointer ${activeItem === 'Projects' ? 'text-white' : 'text-neutral-500'}`}
-            href="#projects"
-          >
-            Projects
-          </a>
-        </li>
-        <li
-          className="w-20 left-[10px] sm:left-[17px] z-9 rounded-full bg-neutral-700 opacity-40 h-9 absolute custom-transition"
-          style={{
-            right: 'auto',
-            transform: `translateX(${bubblePosition}px)`,
-            transition: `transform .3s cubic-bezier(.34,1.56,.64,1)`,
-          }}
-        ></li>
-      </ul>
+          <div className="h-[calc(100%-16px)] w-full rounded-3xl bg-gray-200/90" />
+        </motion.div>
+      </div>
     </nav>
   );
 }
