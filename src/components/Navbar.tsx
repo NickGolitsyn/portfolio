@@ -127,7 +127,7 @@ export default function Navbar() {
   return (
     <nav
       ref={navRef}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center"
+      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center print:hidden"
     >
       <div
         className={`relative flex items-center rounded-[32px] p-2 transition-all duration-300 ${

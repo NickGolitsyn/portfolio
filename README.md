@@ -5,7 +5,10 @@
 - [ ] Add the cool logo effect
 - [ ] Add blog
 - [ ] Check Google Search Console
-- [ ] Check lighthouse scores
+- [x] Check lighthouse scores
+- [x] Fix accessibility
+- [ ] Bump up performance from 99/100 to 100/100
+- [x] Fix printing
 
 # Astro Starter Kit: Basics
 

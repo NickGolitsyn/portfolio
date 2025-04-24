@@ -1,42 +1,60 @@
 ---
-import json from '../../data/data.json'
+import json from "../../data/data.json";
 import { MailIcon, PhoneIcon } from "lucide-react";
-import { GitHubIcon } from '../components/icons/GitHubIcon'
-import { LinkedInIcon } from '../components/icons/LinkedInIcon'
+import { GitHubIcon } from "../components/icons/GitHubIcon";
+import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 ---
 
 <footer class="max-w-screen-xl mx-8 xl:mx-auto border-t mt-10 print:hidden">
   <div class="my-4 flex items-center justify-between">
     <p class="text-neutral-500 text-sm font-light">&copy; 2024 Nick Golitsyn</p>
-    <div class="flex gap-x-2 pt-1 text-sm text-neutral-500 print:hidden">
-      {json.contact.email ? (
-        <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-          <a href={`mailto:${json.contact.email}`}>
-            <MailIcon className="size-4 m-auto" />
+    <div class="flex gap-x-3 pt-1 text-sm text-neutral-500 print:hidden">
+      {
+        json.contact.email ? (
+          <a
+            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+            aria-label={`Send an e-mail`}
+            href={`mailto:${json.contact.email}`}
+          >
+            <MailIcon className="size-4" />
           </a>
-        </button>
-      ) : null}
-      {json.contact.tel ? (
-        <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-          <a href={`tel:${json.contact.tel}`}>
+        ) : null
+      }
+      {
+        json.contact.tel ? (
+          <a
+            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+            aria-label={`Call`}
+            href={`tel:${json.contact.tel}`}
+          >
             <PhoneIcon className="size-4 m-auto" />
           </a>
-        </button>
-      ) : null}
-      {json.contact.git ? (
-        <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-          <a href={`${json.contact.git}`}>
+        ) : null
+      }
+      {
+        json.contact.git ? (
+          <a
+            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+            aria-label={`GitHub Link (opens in new tab)`}
+            href={`${json.contact.git}`}
+            target="_blank"
+          >
             <GitHubIcon className="size-4 m-auto" />
           </a>
-        </button>
-      ) : null}
-      {json.contact.linkedIn ? (
-        <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-          <a href={`${json.contact.linkedIn}`}>
+        ) : null
+      }
+      {
+        json.contact.linkedIn ? (
+          <a
+            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+            aria-label={`LinkedIn Link (opens in new tab)`}
+            href={`${json.contact.linkedIn}`}
+            target="_blank"
+          >
             <LinkedInIcon className="size-4 m-auto" />
           </a>
-        </button>
-      ) : null}
+        ) : null
+      }
     </div>
     <!-- <div class="text-sm text-neutral-500 flex">
       <ul class="flex items-center gap-3">

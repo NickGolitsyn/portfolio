@@ -30,41 +30,51 @@ import Carousel from "../components/Carousel";
               {json.contact.location}
             </a>
           </p>
-          <div class="flex gap-x-2 pt-1 text-sm text-neutral-500 print:hidden">
+          <div class="flex gap-x-3 pt-1 text-sm text-neutral-500 print:hidden">
             {
               json.contact.email ? (
-                <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-                  <a href={`mailto:${json.contact.email}`}>
-                    <MailIcon className="size-4 m-auto" />
-                  </a>
-                </button>
+                <a
+                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+                  aria-label={`Send an e-mail`}
+                  href={`mailto:${json.contact.email}`}
+                >
+                  <MailIcon className="size-4" />
+                </a>
               ) : null
             }
             {
               json.contact.tel ? (
-                <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-                  <a href={`tel:${json.contact.tel}`}>
-                    <PhoneIcon className="size-4 m-auto" />
-                  </a>
-                </button>
+                <a
+                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+                  aria-label={`Call`}
+                  href={`tel:${json.contact.tel}`}
+                >
+                  <PhoneIcon className="size-4 m-auto" />
+                </a>
               ) : null
             }
             {
               json.contact.git ? (
-                <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-                  <a href={`${json.contact.git}`}>
-                    <GitHubIcon className="size-4 m-auto" />
-                  </a>
-                </button>
+                <a
+                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+                  aria-label={`GitHub Link (opens in new tab)`}
+                  href={`${json.contact.git}`}
+                  target="_blank"
+                >
+                  <GitHubIcon className="size-4 m-auto" />
+                </a>
               ) : null
             }
             {
               json.contact.linkedIn ? (
-                <button class="size-7 hover:text-neutral-950 hover:bg-neutral-100 outline outline-1 outline-neutral-200 rounded-sm transition-colors">
-                  <a href={`${json.contact.linkedIn}`}>
-                    <LinkedInIcon className="size-4 m-auto" />
-                  </a>
-                </button>
+                <a
+                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
+                  aria-label={`LinkedIn Link (opens in new tab)`}
+                  href={`${json.contact.linkedIn}`}
+                  target="_blank"
+                >
+                  <LinkedInIcon className="size-4 m-auto" />
+                </a>
               ) : null
             }
           </div>
@@ -127,7 +137,7 @@ import Carousel from "../components/Carousel";
         </p>
       </div>
     </section>
-    <section class="mt-10">
+    <section class="mt-10 print:hidden">
       <Carousel client:load />
     </section>
     <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
@@ -136,7 +146,7 @@ import Carousel from "../components/Carousel";
         <div class="flex flex-wrap gap-3">
           {
             json.skills.map((item) => (
-              <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
+              <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
                 {item}
               </p>
             ))
@@ -152,7 +162,7 @@ import Carousel from "../components/Carousel";
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {
           json.projects.map((item) => (
-            <div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-100 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5">
+            <div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-50 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5 break-inside-avoid">
               <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-x-2">
                   {item?.url ? (
@@ -175,7 +185,7 @@ import Carousel from "../components/Carousel";
               </div>
               <div class="flex flex-wrap gap-3">
                 {item.stack.map((stackItem) => (
-                  <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
+                  <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
                     {stackItem}
                   </p>
                 ))}
@@ -198,7 +208,7 @@ import Carousel from "../components/Carousel";
               <p class="text-neutral-500 text-sm">{item.description}</p>
               <div class="flex flex-wrap gap-2 mt-1 md:mt-2">
                 {item.stack.map((stackItem) => (
-                  <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
+                  <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
                     {stackItem}
                   </p>
                 ))}
