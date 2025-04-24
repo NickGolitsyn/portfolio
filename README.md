@@ -1,3 +1,12 @@
+# TODO
+- [ ] Add colour
+- [ ] Add logo to navbar or website
+- [ ] Add contact section w/ calendly or cal.com
+- [ ] Add the cool logo effect
+- [ ] Add blog
+- [ ] Check Google Search Console
+- [ ] Check lighthouse scores
+
 # Astro Starter Kit: Basics
 
 ```sh

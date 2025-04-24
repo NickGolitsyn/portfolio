@@ -11,16 +11,13 @@ import Carousel from "../components/Carousel";
   <main class="">
     <div class="pt-32 print:hidden"></div>
     <section
-      class="w-full space-y-8 print:space-y-6 max-w-screen-md mx-8 md:mx-auto"
+      class="space-y-8 print:space-y-6 max-w-screen-md mx-8 md:mx-auto"
       id="home"
     >
       <div class="flex items-center justify-between">
         <div class="flex-1 space-y-1.5">
           <h1 class="text-2xl font-bold text-neutral-950">Nick Golitsyn</h1>
-          <p class="text-pretty text-sm text-neutral-500">
-            Web Developer focused on building products with extra attention to
-            detail.
-          </p>
+          <p class="text-pretty text-sm text-neutral-500">Web Developer</p>
           <p
             class="items-center text-pretty font-mono text-xs text-neutral-500"
           >
@@ -146,86 +143,86 @@ import Carousel from "../components/Carousel";
           }
         </div>
       </div>
-      <section
-        class="mt-10 print-force-new-page max-w-screen-md mx-8 md:mx-auto"
-        id="projects"
-      >
-        <h2 class="text-xl font-medium mb-2 text-neutral-950">Projects</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {
-            json.projects.map((item) => (
-              <div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-100 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5">
-                <div class="flex flex-col gap-2">
-                  <div class="flex items-center gap-x-2">
-                    {item?.url ? (
-                      <h3 class="font-medium text-neutral-950 hover:underline">
-                        <a target="_blank" href={item?.url}>
-                          {item.title}
-                        </a>
-                      </h3>
-                    ) : (
-                      <h3 class="font-medium">{item.title}</h3>
-                    )}
-                    {item?.url && (
-                      <span class="relative flex size-2 print:hidden">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75" />
-                        <span class="relative inline-flex rounded-full size-2 bg-lime-500" />
-                      </span>
-                    )}
-                  </div>
-                  <p class="text-neutral-500 text-sm">{item.description}</p>
-                </div>
-                <div class="flex flex-wrap gap-3">
-                  {item.stack.map((stackItem) => (
-                    <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
-                      {stackItem}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-      <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-        <h2 class="text-xl font-medium mb-2 text-neutral-950">Experience</h2>
-        <div class="flex flex-col gap-5">
-          {
-            json.experience.map((item) => (
-              <div>
-                <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
-                  <h3 class="font-medium text-neutral-950">{item.title}</h3>
-                  <p class="text-neutral-500 text-sm">{item.date}</p>
-                </div>
-                <p class="text-neutral-500 text-sm">{item.description}</p>
-                <div class="flex flex-wrap gap-2 mt-1 md:mt-2">
-                  {item.stack.map((stackItem) => (
-                    <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
-                      {stackItem}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </section>
-      <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-        <h2 class="text-xl font-medium mb-2 text-neutral-950">Education</h2>
-        <div class="flex flex-col gap-5">
-          {
-            json.education.map((item) => (
-              <div>
-                <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
-                  <h3 class="font-medium text-neutral-950">{item.title}</h3>
-                  <p class="text-neutral-500 text-sm">{item.date}</p>
+    </section>
+    <section
+      class="mt-10 print-force-new-page max-w-screen-md mx-8 md:mx-auto"
+      id="projects"
+    >
+      <h2 class="text-xl font-medium mb-2 text-neutral-950">Projects</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {
+          json.projects.map((item) => (
+            <div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-100 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5">
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-x-2">
+                  {item?.url ? (
+                    <h3 class="font-medium text-neutral-950 hover:underline">
+                      <a target="_blank" href={item?.url}>
+                        {item.title}
+                      </a>
+                    </h3>
+                  ) : (
+                    <h3 class="font-medium">{item.title}</h3>
+                  )}
+                  {item?.url && (
+                    <span class="relative flex size-2 print:hidden">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75" />
+                      <span class="relative inline-flex rounded-full size-2 bg-lime-500" />
+                    </span>
+                  )}
                 </div>
                 <p class="text-neutral-500 text-sm">{item.description}</p>
               </div>
-            ))
-          }
-        </div>
-      </section>
+              <div class="flex flex-wrap gap-3">
+                {item.stack.map((stackItem) => (
+                  <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
+                    {stackItem}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
+      <h2 class="text-xl font-medium mb-2 text-neutral-950">Experience</h2>
+      <div class="flex flex-col gap-5">
+        {
+          json.experience.map((item) => (
+            <div>
+              <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
+                <h3 class="font-medium text-neutral-950">{item.title}</h3>
+                <p class="text-neutral-500 text-sm">{item.date}</p>
+              </div>
+              <p class="text-neutral-500 text-sm">{item.description}</p>
+              <div class="flex flex-wrap gap-2 mt-1 md:mt-2">
+                {item.stack.map((stackItem) => (
+                  <p class="bg-neutral-100 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
+                    {stackItem}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
+      <h2 class="text-xl font-medium mb-2 text-neutral-950">Education</h2>
+      <div class="flex flex-col gap-5">
+        {
+          json.education.map((item) => (
+            <div>
+              <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
+                <h3 class="font-medium text-neutral-950">{item.title}</h3>
+                <p class="text-neutral-500 text-sm">{item.date}</p>
+              </div>
+              <p class="text-neutral-500 text-sm">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
     </section>
   </main>
 </Layout>
