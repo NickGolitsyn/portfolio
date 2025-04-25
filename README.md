@@ -4,11 +4,12 @@
 - [ ] Add contact section w/ calendly or cal.com
 - [ ] Add the cool logo effect
 - [ ] Add blog
-- [ ] Check Google Search Console
+- [x] Check Google Search Console
 - [x] Check lighthouse scores
 - [x] Fix accessibility
 - [ ] Bump up performance from 99/100 to 100/100
 - [x] Fix printing
+- [ ] Improve bubble movement
 
 # Astro Starter Kit: Basics
 

@@ -78,6 +78,8 @@ export default function Carousel() {
                 className="w-full h-full object-cover"
                 src={item}
                 alt={"website"}
+                loading="lazy"
+                crossOrigin="anonymous"
               />
             </motion.div>
           ))}
