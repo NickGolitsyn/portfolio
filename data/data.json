@@ -124,7 +124,7 @@
   ],
   "projects": [
     {
-      "title": "Easter Egg Shop",
+      "title": "Ressurection Egg Shop",
       "description": "Website with statistics for a Euro 2024 prediction game.",
       "stack": ["NextJS", "Stripe", "Tailwind", "Framer Motion"],
       "url": "https://www.glebfeels.com/en"
