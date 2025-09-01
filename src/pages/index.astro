@@ -108,32 +108,24 @@ import Carousel from "../components/Carousel";
       <h2 class="text-xl font-medium mb-2 text-neutral-950">About</h2>
       <div class="flex flex-col gap-2 text-neutral-500 text-sm">
         <p>
-          I’m a 22-year-old web developer and designer with a passion for
-          building visually engaging, intuitive, and high-performing websites.
-          Since October 2024, I’ve been part of the team at Strange Tech, where
-          I contribute to projects that combine clean design with robust,
-          user-focused functionality.
+          I’m a 22-year-old web developer with a focus on building clean,
+          modern, and user-friendly websites. Since October 2024, I’ve been
+          working at Strange Tech, where I contribute to projects ranging from
+          custom WordPress builds to React and Laravel applications.
         </p>
         <p>
-          My journey began with hands-on experience in college, freelance work,
-          and personal projects. In June 2023, I completed a 4-year diploma in
-          Web Development at IThub College in Moscow, gaining a solid foundation
-          in modern programming languages, UI/UX principles, and industry best
-          practices. In early 2024, I further expanded my skillset by completing
-          a 10-week Data Analysis bootcamp at Cambridge Spark, adding analytical
-          thinking and data-driven decision-making to my developer toolkit.
+          My background includes a four-year diploma in Web Development from
+          IThub College and a 10-week Data Analysis bootcamp at Cambridge Spark,
+          experiences that gave me both a solid technical foundation and a
+          strong analytical mindset. Alongside my professional work, I continue
+          to grow my skills through freelance projects and personal development.
         </p>
         <p>
-          Fluent in both English and Russian, I bring a global perspective to
-          every project and pride myself on being adaptable, detail-oriented,
-          and always eager to stay on top of the latest design and development
-          trends.
-        </p>
-        <p>
-          I am available for select freelance projects-especially those that
-          offer creative challenges or opportunities to collaborate with
-          like-minded teams. If you’ve got something in mind, feel free to get
-          in touch.
+          Fluent in English and Russian, I enjoy adapting to different teams and
+          challenges, and I take pride in being detail-oriented and reliable.
+          I’m open to select freelance work and part-time opportunities that let
+          me collaborate with like-minded people and apply my skills to
+          meaningful projects.
         </p>
       </div>
     </section>
@@ -205,7 +197,11 @@ import Carousel from "../components/Carousel";
                 <h3 class="font-medium text-neutral-950">{item.title}</h3>
                 <p class="text-neutral-500 text-sm">{item.date}</p>
               </div>
-              <p class="text-neutral-500 text-sm">{item.description}</p>
+              <div class="space-y-2">
+                {item.description.map((descriptionItem) => (
+                  <p class="text-neutral-500 text-sm">{descriptionItem}</p>
+                ))}
+              </div>
               <div class="flex flex-wrap gap-2 mt-1 md:mt-2">
                 {item.stack.map((stackItem) => (
                   <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
@@ -228,7 +224,11 @@ import Carousel from "../components/Carousel";
                 <h3 class="font-medium text-neutral-950">{item.title}</h3>
                 <p class="text-neutral-500 text-sm">{item.date}</p>
               </div>
-              <p class="text-neutral-500 text-sm">{item.description}</p>
+              <div class="space-y-2">
+                {item.description.map((descriptionItem) => (
+                  <p class="text-neutral-500 text-sm">{descriptionItem}</p>
+                ))}
+              </div>
             </div>
           ))
         }

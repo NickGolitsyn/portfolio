@@ -18,66 +18,59 @@
   "skills": [
     "React",
     "Next.js",
+    "Astro",
     "JavaScript",
     "TypeScript",
-    "Astro",
-    "HTML",
-    "CSS",
-    "Sass",
-    "Tailwind",
-    "Git",
-    "GitHub",
-    "Framer-Motion",
+    "Tailwind CSS",
+    "Framer Motion",
     "REST APIs",
     "GraphQL",
-    "Web Accessibility",
-    "PWA",
-    "PHP",
+    "Web Accessibility (a11y)",
+    "Progressive Web Apps (PWA)",
+    "Stripe Integration",
     "Laravel",
-    "WordPress",
-    "Cwicly",
+    "PHP",
+    "Authentication & Authorization",
     "Python",
     "Flask",
     "Pandas",
     "SQL",
-    "MongoDB",
-    "MySQL",
-    "Firebase",
-    "Swift",
-    "Dart",
-    "Flutter",
-    "Web Design",
-    "Figma",
-    "Adobe Illustrator",
-    "Adobe InDesign",
-    "Adobe Photoshop",
-    "UX/UI",
-    "SEO",
-    "Vercel",
-    "Netlify",
-    "Excel",
-    "Google Sheets API",
-    "Drizzle",
     "PostgreSQL",
-    "Sanity.io"
+    "MongoDB",
+    "Firebase",
+    "Drizzle ORM",
+    "Sanity.io",
+    "Figma",
+    "Deployment (Vercel, Netlify)",
+    "Git"
   ],
   "education": [
     {
       "date": "Oct 2023 - Jan 2024",
       "title": "Data Analysis Bootcamp – Cambridge Spark",
-      "description": "Building upon my existing knowledge in Python, I further strengthened my skills in this versatile language during the 10-week Data Analysis Bootcamp at Cambridge Spark. The program delved into Pandas, providing essential skills for data processing and analysis. As the journey progressed, I explored data visualization using Pandas, Seaborn, and Bokeh. A module on Maths for Data Analysis enhanced my understanding of crucial mathematical concepts. The course emphasized effective storytelling with data, enabling me to craft engaging narratives for diverse audiences.A highlight was the practical Hackathon, offering a hands-on experience in applying newly acquired skills. The bootcamp, covering statistical programming, data mining, SQL, and Python, has significantly enriched my data analysis capabilities."
+      "description": [
+        "Building upon my existing knowledge in Python, I strengthened my skills during the 10-week Data Analysis Bootcamp at Cambridge Spark. The program covered Pandas for data processing and analysis, along with data visualization using Pandas, Seaborn, and Bokeh. A module on Maths for Data Analysis deepened my understanding of key mathematical concepts, while an emphasis on storytelling with data helped me learn how to craft clear, engaging narratives for different audiences.",
+        "A highlight of the course was the practical Hackathon, where I applied these skills to real-world problems. The bootcamp also introduced me to statistical programming, data mining, and SQL, providing a strong foundation in data analysis and enriching my ability to work with complex datasets."
+      ]
     },
     {
       "date": "Sep 2019 - Jun 2023",
       "title": "IThub College",
-      "description": "During my four-year journey at IThub College, I pursued a 4-year diploma in front-end web development, accompanied by certifications like IC3 Computing Fundamentals and Microsoft's Introduction to Programming Using JavaScript. My education covered a diverse range of topics relevant to Web Development, Data Analysis, and other IT roles. Notable subjects include UX/UI principles, database management (SQL, PostgreSQL, MySQL), and programming languages such as JavaScript, Python, and Dart (Flutter). In addition, I gained insights into project management, testing, and DevOps, enhancing my ability to contribute effectively to various IT domains."
+      "description": [
+        "During my four years at IThub College, I earned a diploma in Front-End Web Development, along with certifications such as IC3 Computing Fundamentals and Microsoft’s Introduction to Programming Using JavaScript. The program gave me a strong foundation in modern web technologies while also broadening my knowledge across related IT fields.",
+
+        "My studies included UX/UI principles, database management with SQL, PostgreSQL, and MySQL, and programming in JavaScript, Python, and Dart (Flutter). I also gained exposure to project management, testing, and DevOps practices, equipping me with versatile skills to contribute across different areas of software development and IT."
+      ]
     }
   ],
   "experience": [
     {
       "date": "Oct 2024 - Present",
       "title": "Strange Tech",
-      "description": "Working as a Frontend Developer.",
+      "description": [
+        "At Strange Tech, I work as a versatile developer, contributing across a wide range of projects depending on what’s needed. My role often involves building and maintaining websites and applications using WordPress, Laravel, React, and Flutter. I spend a lot of time creating and refining UIs, ensuring sites are accessible, optimized for SEO, and perform well for end users.",
+        "Alongside frontend development, I also support backend tasks, fix bugs, and handle general problem-solving across projects. I provide reliable full-stack support within the team, adapting quickly to different technologies and requirements."
+      ],
       "stack": [
         "React",
         "TypeScript",
@@ -85,41 +78,57 @@
         "PHP",
         "Laravel",
         "WordPress",
-        "Cwicly"
+        "Etch",
+        "SEO",
+        "Accessibility (a11y)"
       ]
     },
     {
       "date": "Oct 2023 - Apr 2024",
       "title": "Orthodox parish website",
-      "description": "Developed a website for a local orthodox parish.",
+      "description": ["Developed a website for a local orthodox parish."],
       "stack": ["NextJS", "TypeScript", "Tailwind", "Sanity.io"]
     },
     {
       "date": "Jan 2024",
       "title": "Python Mail Bot",
-      "description": "Developed a Python script facilitating bulk email distribution, specifically designed to assist in sending collaboration offers to numerous companies.",
+      "description": [
+        "Developed a Python script facilitating bulk email distribution, specifically designed to assist in sending collaboration offers to numerous companies."
+      ],
       "stack": ["Python"]
     },
     {
       "date": "Dec 2023",
       "title": "Christmas card shop website",
-      "description": "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage.",
+      "description": [
+        "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage."
+      ],
       "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"]
     },
     {
       "date": "Aug - Sep 2023",
       "title": "Chimeras (Blog website)",
-      "description": "Completed a project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling.",
+      "description": [
+        "Completed a project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling."
+      ],
       "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"]
     },
     {
       "date": "Sep - Oct 2022",
       "title": "Coin collection sorting",
-      "description": "Worked on a coin collection, undertaking tasks such as cleaning, sorting, and cataloguing coins for a sales database. Additionally, physically organized coins into designated bags for enhanced sorting efficiency.",
+      "description": [
+        "Worked on a coin collection, undertaking tasks such as cleaning, sorting, and cataloguing coins for a sales database. Additionally, physically organized coins into designated bags for enhanced sorting efficiency."
+      ],
       "stack": ["Excel", "SQL", "Database management"]
     }
   ],
   "projects": [
+    {
+      "title": "Easter Egg Shop",
+      "description": "Website with statistics for a Euro 2024 prediction game.",
+      "stack": ["NextJS", "Stripe", "Tailwind", "Framer Motion"],
+      "url": "https://www.glebfeels.com/en"
+    },
     {
       "title": "Euro 2024 predictor",
       "description": "Website with statistics for a Euro 2024 prediction game.",
