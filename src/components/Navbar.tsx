@@ -20,19 +20,30 @@ export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const [pill, setPill] = useState<{ x: number; width: number } | null>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
 
   useEffect(() => {
     const measure = () => {
-      if (!navRef.current) return;
+      if (!listRef.current) return;
       const activeIndex = navItems.findIndex((item) => item.id === activeSection);
       if (activeIndex < 0) return;
-      const button = navRef.current.querySelector(
+      const button = listRef.current.querySelector(
         `button[data-nav-index="${activeIndex + 1}"]`,
       ) as HTMLElement | null;
       if (button) {
         setPill({ x: button.offsetLeft, width: button.offsetWidth });
+        const scroller = scrollerRef.current;
+        if (scroller) {
+          const target =
+            button.offsetLeft -
+            (scroller.clientWidth - button.offsetWidth) / 2;
+          scroller.scrollTo({
+            left: Math.max(0, target),
+            behavior: "smooth",
+          });
+        }
       }
     };
     measure();
@@ -104,12 +115,11 @@ export default function Navbar() {
 
   return (
     <nav
-      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 print:hidden"
+      className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-max max-w-[calc(100vw-1.5rem)] print:hidden"
       aria-label="Primary"
     >
       <div
-        ref={navRef}
-        className={`relative flex items-center gap-1 rounded-full pl-2 pr-2 py-1.5 transition-all duration-500 ease-out ${
+        className={`flex items-center rounded-full pl-2 pr-1.5 py-1.5 max-w-full transition-all duration-500 ease-out ${
           hasScrolled
             ? "bg-[rgba(250,248,243,0.82)] backdrop-blur-xl border border-[rgba(28,26,22,0.12)] shadow-[0_8px_32px_-16px_rgba(28,26,22,0.28)]"
             : "bg-[rgba(250,248,243,0.5)] backdrop-blur-md border border-[rgba(28,26,22,0.08)]"
@@ -132,32 +142,39 @@ export default function Navbar() {
           aria-hidden="true"
         />
 
-        {navItems.map((item, idx) => (
-          <button
-            key={item.id}
-            data-nav-index={idx + 1}
-            onClick={() => scrollToSection(item.id)}
-            className={`relative z-10 inline-flex items-center justify-center px-2.5 sm:px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors duration-300 ${
-              activeSection === item.id
-                ? "text-[var(--paper)]"
-                : "text-[var(--ink-mute)] hover:text-[var(--ink)]"
-            }`}
-            aria-current={activeSection === item.id ? "true" : undefined}
-          >
-            <span>{item.label}</span>
-          </button>
-        ))}
+        <div
+          ref={scrollerRef}
+          className="min-w-0 flex-1 overflow-x-auto overscroll-x-contain [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <div ref={listRef} className="relative flex items-center gap-1 pr-1">
+            {navItems.map((item, idx) => (
+              <button
+                key={item.id}
+                data-nav-index={idx + 1}
+                onClick={() => scrollToSection(item.id)}
+                className={`relative z-10 shrink-0 inline-flex items-center justify-center px-2.5 sm:px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors duration-300 ${
+                  activeSection === item.id
+                    ? "text-[var(--paper)]"
+                    : "text-[var(--ink-mute)] hover:text-[var(--ink)]"
+                }`}
+                aria-current={activeSection === item.id ? "true" : undefined}
+              >
+                <span>{item.label}</span>
+              </button>
+            ))}
 
-        {pill && (
-          <motion.div
-            className="absolute top-1.5 bottom-1.5 left-0 z-0 pointer-events-none"
-            initial={false}
-            animate={{ x: pill.x, width: pill.width }}
-            transition={{ type: "spring", stiffness: 380, damping: 32 }}
-          >
-            <div className="h-full w-full rounded-full bg-[var(--ink)]" />
-          </motion.div>
-        )}
+            {pill && (
+              <motion.div
+                className="absolute top-0 bottom-0 left-0 z-0 pointer-events-none"
+                initial={false}
+                animate={{ x: pill.x, width: pill.width }}
+                transition={{ type: "spring", stiffness: 380, damping: 32 }}
+              >
+                <div className="h-full w-full rounded-full bg-[var(--ink)]" />
+              </motion.div>
+            )}
+          </div>
+        </div>
       </div>
     </nav>
   );

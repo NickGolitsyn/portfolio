@@ -111,6 +111,20 @@ const { title } = Astro.props;
     font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
   }
 
+  /* ── Carousel edge fade (desktop only) ─────────────────────────── */
+  @media (min-width: 768px) {
+    .carousel-fade {
+      mask-image:
+        linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent),
+        radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%);
+      -webkit-mask-image:
+        linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent),
+        radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%);
+      mask-composite: intersect;
+      -webkit-mask-composite: source-in;
+    }
+  }
+
   /* ── Section + utility styles ─────────────────────────────── */
   .eyebrow {
     font-family: "JetBrains Mono", ui-monospace, monospace;

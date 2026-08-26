@@ -51,10 +51,14 @@ function Frame({ src, index }: FrameProps) {
   );
 }
 
+function loopDuration(distance: number) {
+  const vw = window.innerWidth;
+  const pxPerSec = vw < 768 ? Math.max(vw * 0.65, 155) : 90;
+  return Math.max(distance / pxPerSec, 4);
+}
+
 export default function Carousel() {
-  const FAST_DURATION = 30;
-  const SLOW_DURATION = 80;
-  const [duration, setDuration] = useState(FAST_DURATION);
+  const [slow, setSlow] = useState(false);
   const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
@@ -64,6 +68,10 @@ export default function Carousel() {
   useEffect(() => {
     let controls;
     const finalPosition = -width / 2 - 20;
+    if (!width) return;
+
+    const fast = loopDuration(Math.abs(finalPosition));
+    const duration = slow ? fast * 2.4 : fast;
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
@@ -84,23 +92,13 @@ export default function Carousel() {
       });
     }
     return controls?.stop;
-  }, [xTranslation, width, duration, rerender]);
+  }, [xTranslation, width, slow, rerender]);
 
   return (
-    <div
-      className="relative w-screen overflow-hidden py-12"
-      style={{
-        maskImage:
-          "linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent), radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%)",
-        WebkitMaskImage:
-          "linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent), radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%)",
-        maskComposite: "intersect",
-        WebkitMaskComposite: "source-in",
-      }}
-    >
+    <div className="carousel-fade relative w-screen overflow-hidden py-12">
       <div className="relative">
         <motion.div
-          className="flex gap-10 group"
+          className="flex w-max gap-10 group"
           ref={ref}
           style={{ x: xTranslation }}
         >
@@ -109,19 +107,11 @@ export default function Carousel() {
               key={index}
               onMouseEnter={() => {
                 setMustFinish(true);
-                setDuration(SLOW_DURATION);
+                setSlow(true);
               }}
               onMouseLeave={() => {
                 setMustFinish(true);
-                setDuration(FAST_DURATION);
-              }}
-              onTouchStart={() => {
-                setMustFinish(true);
-                setDuration(SLOW_DURATION);
-              }}
-              onTouchEnd={() => {
-                setMustFinish(true);
-                setDuration(FAST_DURATION);
+                setSlow(false);
               }}
             >
               <Frame src={item} index={index} />
