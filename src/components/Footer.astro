@@ -3,82 +3,129 @@ import json from "../../data/data.json";
 import { MailIcon, PhoneIcon } from "lucide-react";
 import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
+import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
+import { TelegramIcon } from "../components/icons/TelegramIcon";
+import Logo from "./Logo";
+
+const year = new Date().getFullYear();
+const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
 ---
 
-<footer class="max-w-screen-xl mx-8 xl:mx-auto border-t mt-10 print:hidden">
-  <div class="my-4 flex items-center justify-between">
-    <p class="text-neutral-500 text-sm font-light">&copy; 2024 Nick Golitsyn</p>
-    <div class="flex gap-x-3 pt-1 text-sm text-neutral-500 print:hidden">
-      {
-        json.contact.email ? (
-          <a
-            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-            aria-label={`Send an e-mail`}
-            href={`mailto:${json.contact.email}`}
-          >
-            <MailIcon className="size-4" />
-          </a>
-        ) : null
-      }
-      {
-        json.contact.tel ? (
-          <a
-            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-            aria-label={`Call`}
-            href={`tel:${json.contact.tel}`}
-          >
-            <PhoneIcon className="size-4 m-auto" />
-          </a>
-        ) : null
-      }
-      {
-        json.contact.git ? (
-          <a
-            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-            aria-label={`GitHub Link (opens in new tab)`}
-            href={`${json.contact.git}`}
-            target="_blank"
-          >
-            <GitHubIcon className="size-4 m-auto" />
-          </a>
-        ) : null
-      }
-      {
-        json.contact.linkedIn ? (
-          <a
-            class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-            aria-label={`LinkedIn Link (opens in new tab)`}
-            href={`${json.contact.linkedIn}`}
-            target="_blank"
-          >
-            <LinkedInIcon className="size-4 m-auto" />
-          </a>
-        ) : null
-      }
+<footer class="relative mt-24 bg-[var(--paper-raised)] border-t border-[rgba(28,26,22,0.12)] print:hidden">
+  <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+    <div class="py-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div>
+        <a href="#home" aria-label="Home" class="inline-flex text-[var(--ink)]">
+          <Logo className="size-6" />
+        </a>
+        <p class="mt-3 text-sm text-[var(--ink-mute)] max-w-xs">
+          Web developer building clean, modern interfaces - from WordPress
+          to React.
+        </p>
+      </div>
+
+      <div class="text-[13px] text-[var(--ink-mute)]">
+        <ul class="grid grid-cols-2 gap-y-1.5 gap-x-6">
+          <li><a href="#home" class="hover:text-[var(--ink)] transition-colors">Index</a></li>
+          <li><a href="#about" class="hover:text-[var(--ink)] transition-colors">About</a></li>
+          <li><a href="#projects" class="hover:text-[var(--ink)] transition-colors">Work</a></li>
+          <li><a href="#experience" class="hover:text-[var(--ink)] transition-colors">Experience</a></li>
+          <li><a href="#contact" class="hover:text-[var(--ink)] transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="md:text-right">
+        <div class="flex md:justify-end gap-2">
+          {
+            json.contact.email ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="Send an e-mail"
+                href={`mailto:${json.contact.email}`}
+              >
+                <MailIcon className="size-4" />
+              </a>
+            ) : null
+          }
+          {
+            json.contact.tel ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="Call"
+                href={`tel:${json.contact.tel}`}
+              >
+                <PhoneIcon className="size-4" />
+              </a>
+            ) : null
+          }
+          {
+            json.contact.git ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="GitHub (opens in new tab)"
+                href={json.contact.git}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GitHubIcon className="size-4" />
+              </a>
+            ) : null
+          }
+          {
+            json.contact.linkedIn ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="LinkedIn (opens in new tab)"
+                href={json.contact.linkedIn}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <LinkedInIcon className="size-4" />
+              </a>
+            ) : null
+          }
+          {
+            json.contact.telegram ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="Telegram (opens in new tab)"
+                href={json.contact.telegram}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <TelegramIcon />
+              </a>
+            ) : null
+          }
+          {
+            json.contact.tel ? (
+              <a
+                class="size-9 flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                aria-label="WhatsApp (opens in new tab)"
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <WhatsAppIcon className="size-4" />
+              </a>
+            ) : null
+          }
+        </div>
+        <p class="mt-3 mono text-[10px] tracking-[0.18em] uppercase text-[var(--ink-faint)]">
+          {json.contact.location}
+        </p>
+      </div>
     </div>
-    <!-- <div class="text-sm text-neutral-500 flex">
-      <ul class="flex items-center gap-3">
-        <li>
-          <a href="https://www.linkedin.com/in/nickgolitsyn/" target="_blank">
-            <Image class="max-h-4 max-w-4" src="/in.svg" alt="linkedin logo" width={16} height={16} />
-          </a>
-        </li>
-        <li>
-          <a href="mailto:golitsynnick@gmail.com" target="_blank">
-            <Image class="max-h-4 max-w-4" src="/mail.svg" alt="mail" width={16} height={16} />
-          </a>
-        </li>
-        <li>
-          <a href="tel:+447403525139" target="_blank">
-            <Image class="max-h-4 max-w-4" src="/tel.svg" alt="telephone" width={16} height={16} />
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/nickgolitsyn/" target="_blank">
-            <Image class="max-h-4 max-w-4" src="/github.svg" alt="github logo" width={16} height={16} />
-          </a>
-        </li>
-      </ul>
-    </div> -->
+
+    <div
+      class="border-t border-[rgba(28,26,22,0.1)] py-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2"
+    >
+      <p class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+        © {year} · Nick Golitsyn · All rights reserved
+      </p>
+      <p class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+        Built with Astro · React · Tailwind
+      </p>
+    </div>
   </div>
 </footer>

@@ -1,237 +1,554 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import json from "../../data/data.json";
-import { GlobeIcon, MailIcon, PhoneIcon } from "lucide-react";
+import {
+  GlobeIcon,
+  MailIcon,
+  PhoneIcon,
+  ArrowUpRight,
+  ArrowRight,
+} from "lucide-react";
 import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
+import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
+import { TelegramIcon } from "../components/icons/TelegramIcon";
 import Carousel from "../components/Carousel";
+
+const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
 ---
 
-<Layout title="Portfolio | Nick Golitsyn">
-  <main class="">
-    <div class="pt-32 print:hidden"></div>
-    <section
-      class="space-y-8 print:space-y-6 max-w-screen-md mx-8 md:mx-auto"
-      id="home"
-    >
-      <div class="flex items-center justify-between">
-        <div class="flex-1 space-y-1.5">
-          <h1 class="text-2xl font-bold text-neutral-950">Nick Golitsyn</h1>
-          <p class="text-pretty text-sm text-neutral-500">Web Developer</p>
-          <p
-            class="items-center text-pretty font-mono text-xs text-neutral-500"
-          >
-            <a
-              class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-              href={json.contact.locationLink}
-              target="_blank"
-            >
-              <GlobeIcon className="size-3" />
-              {json.contact.location}
-            </a>
-          </p>
-          <div class="flex gap-x-3 pt-1 text-sm text-neutral-500 print:hidden">
-            {
-              json.contact.email ? (
-                <a
-                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-                  aria-label={`Send an e-mail`}
-                  href={`mailto:${json.contact.email}`}
-                >
-                  <MailIcon className="size-4" />
-                </a>
-              ) : null
-            }
-            {
-              json.contact.tel ? (
-                <a
-                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-                  aria-label={`Call`}
-                  href={`tel:${json.contact.tel}`}
-                >
-                  <PhoneIcon className="size-4 m-auto" />
-                </a>
-              ) : null
-            }
-            {
-              json.contact.git ? (
-                <a
-                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-                  aria-label={`GitHub Link (opens in new tab)`}
-                  href={`${json.contact.git}`}
-                  target="_blank"
-                >
-                  <GitHubIcon className="size-4 m-auto" />
-                </a>
-              ) : null
-            }
-            {
-              json.contact.linkedIn ? (
-                <a
-                  class="size-7 flex items-center justify-center hover:text-neutral-950 hover:bg-neutral-50 outline outline-1 outline-neutral-200 rounded-sm transition-colors"
-                  aria-label={`LinkedIn Link (opens in new tab)`}
-                  href={`${json.contact.linkedIn}`}
-                  target="_blank"
-                >
-                  <LinkedInIcon className="size-4 m-auto" />
-                </a>
-              ) : null
-            }
-          </div>
+<Layout title="Nick Golitsyn - Web Developer">
+  <main class="relative">
+    <!-- ─── HERO ────────────────────────────────────────────── -->
+    <section id="home" class="relative min-h-[100svh] flex items-center">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10 pt-32 pb-24">
+        <div class="mb-8 reveal" style="animation-delay: 0.1s">
           <div
-            class="hidden flex-col gap-x-1 text-sm text-neutral-500 print:flex"
+            class="inline-flex items-center gap-2.5 pl-2.5 pr-4 py-1.5 rounded-full border border-[rgba(28,26,22,0.12)] bg-[rgba(250,248,243,0.7)] backdrop-blur-sm"
           >
-            {
-              json.contact.email ? (
-                <a href={`mailto:${json.contact.email}`}>
-                  <span>{json.contact.email}</span>
-                </a>
-              ) : null
-            }
-            {
-              json.contact.tel ? (
-                <a href={`tel:${json.contact.tel}`}>
-                  <span>{json.contact.tel}</span>
-                </a>
-              ) : null
-            }
+            <span class="relative flex size-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"
+              ></span>
+              <span class="relative inline-flex rounded-full size-2 bg-[var(--accent)]"></span>
+            </span>
+            <span class="mono text-[11px] tracking-[0.18em] uppercase text-[var(--ink-2)]">
+              Available · accepting projects
+            </span>
           </div>
         </div>
 
-        <!-- <Avatar className="size-28">
-					<AvatarImage alt={json.name} src={json.avatarUrl} />
-					<AvatarFallback>{json.initials}</AvatarFallback>
-				</Avatar> -->
-      </div>
-    </section>
-    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto" id="about">
-      <h2 class="text-xl font-medium mb-2 text-neutral-950">About</h2>
-      <div class="flex flex-col gap-2 text-neutral-500 text-sm">
-        <p>
-          I’m a 22-year-old web developer with a focus on building clean,
-          modern, and user-friendly websites. Since October 2024, I’ve been
-          working at Strange Tech, where I contribute to projects ranging from
-          custom WordPress builds to React and Laravel applications.
-        </p>
-        <p>
-          My background includes a four-year diploma in Web Development from
-          IThub College and a 10-week Data Analysis bootcamp at Cambridge Spark,
-          experiences that gave me both a solid technical foundation and a
-          strong analytical mindset. Alongside my professional work, I continue
-          to grow my skills through freelance projects and personal development.
-        </p>
-        <p>
-          Fluent in English and Russian, I enjoy adapting to different teams and
-          challenges, and I take pride in being detail-oriented and reliable.
-          I’m open to select freelance work and part-time opportunities that let
-          me collaborate with like-minded people and apply my skills to
-          meaningful projects.
-        </p>
-      </div>
-    </section>
-    <section class="mt-10 print:hidden">
-      <Carousel client:load />
-    </section>
-    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-      <div class="mt-10">
-        <h2 class="text-xl font-medium mb-2 text-neutral-950">Skills</h2>
-        <div class="flex flex-wrap gap-3">
+        <div class="reveal" style="animation-delay: 0.18s">
+          <h1 class="text-[clamp(2.6rem,8vw,6.4rem)] leading-[0.95] tracking-[-0.03em] font-medium">
+            Nick&nbsp;Golitsyn,
+            <br />
+            <span class="serif italic text-[clamp(2.6rem,8vw,6.4rem)]"
+              >a developer</span
+            >
+            <br />
+            <span class="text-[var(--ink-mute)]">building the modern web.</span>
+          </h1>
+        </div>
+
+        <div
+          class="mt-10 max-w-2xl text-[15px] sm:text-[16px] leading-relaxed text-[var(--ink-mute)] reveal"
+          style="animation-delay: 0.28s"
+        >
+          Independent web developer based in
+          <a
+            href={json.contact.locationLink}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-baseline gap-1.5 text-[var(--ink)] hover:text-[var(--accent)] border-b border-[rgba(28,26,22,0.2)] hover:border-[var(--accent)] transition-colors"
+          >
+            <GlobeIcon className="size-3.5 self-center" />
+            {json.contact.location}
+          </a>.
+          I design and engineer fast, characterful websites - from custom
+          <span class="text-[var(--ink)]">WordPress</span>
+          and <span class="text-[var(--ink)]">Shopify</span> builds to
+          <span class="text-[var(--ink)]">React</span> apps powered by
+          <span class="text-[var(--ink)]">Vite</span> and <span class="text-[var(--ink)]">Convex</span>.
+        </div>
+
+        <div
+          class="mt-10 flex flex-wrap items-center gap-3 reveal"
+          style="animation-delay: 0.38s"
+        >
+          <a
+            href="#contact"
+            class="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[var(--ink)] text-[var(--paper)] font-medium text-sm hover:bg-[var(--ink-2)] transition-colors"
+          >
+            Start a project
+            <ArrowUpRight
+              className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </a>
+          <a
+            href="#projects"
+            class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
+          >
+            View selected work
+            <ArrowRight
+              className="size-4 transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+        </div>
+
+        <div
+          class="mt-12 flex items-center gap-5 reveal"
+          style="animation-delay: 0.48s"
+        >
           {
-            json.skills.map((item) => (
-              <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
-                {item}
-              </p>
+            json.contact.email && (
+              <a
+                href={`mailto:${json.contact.email}`}
+                aria-label="Email"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <MailIcon className="size-4" />
+              </a>
+            )
+          }
+          {
+            json.contact.git && (
+              <a
+                href={json.contact.git}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <GitHubIcon className="size-4" />
+              </a>
+            )
+          }
+          {
+            json.contact.linkedIn && (
+              <a
+                href={json.contact.linkedIn}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <LinkedInIcon className="size-4" />
+              </a>
+            )
+          }
+          {
+            json.contact.telegram && (
+              <a
+                href={json.contact.telegram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Telegram"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <TelegramIcon />
+              </a>
+            )
+          }
+          {
+            json.contact.tel && (
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <WhatsAppIcon className="size-4" />
+              </a>
+            )
+          }
+          {
+            json.contact.tel && (
+              <a
+                href={`tel:${json.contact.tel}`}
+                aria-label="Phone"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <PhoneIcon className="size-4" />
+              </a>
+            )
+          }
+        </div>
+
+        <div
+          class="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(28,26,22,0.1)] border border-[rgba(28,26,22,0.1)] rounded-lg overflow-hidden reveal"
+          style="animation-delay: 0.55s"
+        >
+          {
+            [
+              { k: "Age", v: "23" },
+              { k: "Years coding", v: "6+" },
+              { k: "Projects shipped", v: "20+" },
+              { k: "Languages", v: "EN · RU" },
+            ].map((stat) => (
+              <div class="bg-[var(--paper-raised)] px-5 py-4">
+                <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+                  {stat.k}
+                </div>
+                <div class="mt-1 text-2xl font-medium serif italic">
+                  {stat.v}
+                </div>
+              </div>
             ))
           }
         </div>
       </div>
     </section>
-    <section
-      class="mt-10 print-force-new-page max-w-screen-md mx-8 md:mx-auto"
-      id="projects"
-    >
-      <h2 class="text-xl font-medium mb-2 text-neutral-950">Projects</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        {
-          json.projects.map((item) => (
-            <div class="w-full bg-gradient-to-br from-neutral-50 bg-neutral-50 border border-neutral-300 rounded-md px-5 py-4 flex flex-col justify-between gap-5 break-inside-avoid">
-              <div class="flex flex-col gap-2">
-                <div class="flex items-center gap-x-2">
-                  {item?.url ? (
-                    <h3 class="font-medium text-neutral-950 hover:underline">
-                      <a target="_blank" href={item?.url}>
-                        {item.title}
-                      </a>
+
+    <!-- ─── ABOUT ───────────────────────────────────────────── -->
+    <section id="about" class="relative py-24 scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-12 gap-8 md:gap-12">
+          <header class="col-span-12 md:col-span-4">
+            <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium leading-tight">
+              A developer who <span class="serif italic">cares</span>
+              about the details.
+            </h2>
+            <div class="hairline mt-8"></div>
+          </header>
+
+          <div class="col-span-12 md:col-span-8 space-y-5 text-[15px] leading-relaxed text-[var(--ink-mute)]">
+            <p>
+              I&rsquo;m a <span class="text-[var(--ink)]">23-year-old web developer</span>
+              focused on building clean, modern, user-friendly websites. Since
+              October 2024 I&rsquo;ve been at
+              <span class="text-[var(--ink)]">Strange Tech</span>, contributing across
+              everything from custom WordPress and Shopify builds to React and
+              Laravel applications.
+            </p>
+            <p>
+              Day-to-day I work heavily with
+              <span class="text-[var(--ink)]">WordPress</span> using
+              <span class="text-[var(--ink)]">EtchWP</span>,
+              <span class="text-[var(--ink)]">ACF</span>,
+              <span class="text-[var(--ink)]">ACSS</span> and other powerful
+              plugins to push WordPress beyond the usual. On the app side I
+              build with
+              <span class="text-[var(--ink)]">React</span>,
+              <span class="text-[var(--ink)]">Vite</span> and
+              <span class="text-[var(--ink)]">Convex</span>, and I&rsquo;ve also
+              shipped <span class="text-[var(--ink)]">Shopify</span> storefronts -
+              so whether you need a marketing site, an e-commerce store, or a
+              full web app, I can take it from concept to launch.
+            </p>
+            <p>
+              My background includes a four-year diploma in Web Development at
+              IThub College and a 10-week Data Analysis bootcamp at Cambridge
+              Spark - a combination that gave me a solid engineering
+              foundation and a sharp analytical eye. Fluent in English and
+              Russian, I&rsquo;m detail-oriented, reliable, and easy to work
+              with.
+            </p>
+
+            <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {
+                ["WordPress · EtchWP", "Shopify Themes", "React + Vite", "Convex", "ACF · ACSS", "EN · RU"].map(
+                  (highlight) => (
+                    <div class="mono text-[11px] tracking-[0.12em] text-[var(--ink-2)] px-3 py-2 border border-[rgba(28,26,22,0.1)] rounded-md bg-[var(--paper-raised)]">
+                      {highlight}
+                    </div>
+                  ),
+                )
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SKILLS ──────────────────────────────────────────── -->
+    <section id="skills" class="relative py-20 scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-10">
+          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+            What I <span class="serif italic">work with</span>.
+          </h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(28,26,22,0.1)] border border-[rgba(28,26,22,0.1)] rounded-lg overflow-hidden">
+          {
+            json.skillGroups.map((group) => (
+              <div class="bg-[var(--paper-raised)] p-6 hover:bg-white/70 transition-colors duration-300">
+                <h3 class="text-base font-medium mb-4">
+                  {group.label}
+                </h3>
+                <div class="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <span class="chip">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROJECTS ────────────────────────────────────────── -->
+    <section id="projects" class="relative pt-12 pb-24 print-force-new-page scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-2">
+          <div>
+            <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+              Recent <span class="serif italic">projects</span>.
+            </h2>
+          </div>
+          <p class="text-sm text-[var(--ink-mute)] max-w-md md:text-right">
+            Direct clients and personal projects - e-commerce, editorial,
+            and tools. Agency work for Strange Tech is covered in experience.
+          </p>
+        </header>
+      </div>
+
+      <div class="mt-2 mb-12">
+        <Carousel client:load />
+      </div>
+
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {
+            json.projects.map((item) => (
+              <article
+                class="card group relative p-6 md:p-7 flex flex-col gap-5 break-inside-avoid"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div class="flex-1">
+                    <h3 class="text-xl md:text-[22px] tracking-[-0.01em] font-medium leading-tight">
+                      {item.url ? (
+                        <a
+                          target="_blank"
+                          rel="noreferrer"
+                          href={item.url}
+                          class="inline-flex items-center gap-2 group/title"
+                        >
+                          <span class="group-hover/title:text-[var(--accent)] transition-colors">
+                            {item.title}
+                          </span>
+                          <ArrowUpRight className="size-4 text-[var(--accent)] transition-transform group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5" />
+                        </a>
+                      ) : (
+                        item.title
+                      )}
                     </h3>
-                  ) : (
-                    <h3 class="font-medium">{item.title}</h3>
-                  )}
-                  {item?.url && (
-                    <span class="relative flex size-2 print:hidden">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-lime-400 opacity-75" />
-                      <span class="relative inline-flex rounded-full size-2 bg-lime-500" />
-                    </span>
+                  </div>
+                </div>
+
+                <p class="text-[14px] text-[var(--ink-mute)] leading-relaxed">
+                  {item.description}
+                </p>
+
+                <div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-[rgba(28,26,22,0.1)]">
+                  <div class="flex flex-wrap gap-1.5">
+                    {item.stack.map((stackItem) => (
+                      <span class="chip">{stackItem}</span>
+                    ))}
+                  </div>
+                  {item.git && (
+                    <a
+                      href={item.git}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Source on GitHub: ${item.title}`}
+                      class="shrink-0 size-8 inline-flex items-center justify-center rounded-full text-[var(--ink-mute)] hover:text-[var(--ink)] hover:bg-white/70 transition-colors"
+                    >
+                      <GitHubIcon className="size-3.5" />
+                    </a>
                   )}
                 </div>
-                <p class="text-neutral-500 text-sm">{item.description}</p>
-              </div>
-              <div class="flex flex-wrap gap-3">
-                {item.stack.map((stackItem) => (
-                  <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
-                    {stackItem}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))
-        }
+              </article>
+            ))
+          }
+        </div>
       </div>
     </section>
-    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-      <h2 class="text-xl font-medium mb-2 text-neutral-950">Experience</h2>
-      <div class="flex flex-col gap-5">
-        {
-          json.experience.map((item) => (
-            <div>
-              <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
-                <h3 class="font-medium text-neutral-950">{item.title}</h3>
-                <p class="text-neutral-500 text-sm">{item.date}</p>
-              </div>
-              <div class="space-y-2">
-                {item.description.map((descriptionItem) => (
-                  <p class="text-neutral-500 text-sm">{descriptionItem}</p>
-                ))}
-              </div>
-              <div class="flex flex-wrap gap-2 mt-1 md:mt-2">
-                {item.stack.map((stackItem) => (
-                  <p class="bg-neutral-50 text-neutral-500 text-xs px-3 py-1 border border-neutral-300 rounded-sm">
-                    {stackItem}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))
-        }
+
+    <!-- ─── EXPERIENCE ──────────────────────────────────────── -->
+    <section id="experience" class="relative py-24 scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-12">
+          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+            A <span class="serif italic">timeline</span>.
+          </h2>
+        </header>
+
+        <ol class="relative border-l border-[rgba(28,26,22,0.14)] ml-2 md:ml-4 space-y-10">
+          {
+            json.experience.map((item) => (
+              <li class="relative pl-7 md:pl-10">
+                <span class="absolute -left-[5px] top-2 size-2.5 rounded-full bg-[var(--paper)] border border-[var(--ink)]">
+                  <span class="absolute inset-[3px] rounded-full bg-[var(--ink)]" />
+                </span>
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-3">
+                  <h3 class="text-lg md:text-xl font-medium tracking-[-0.01em]">
+                    {item.title}
+                  </h3>
+                  <span class="mono text-[11px] tracking-[0.18em] uppercase text-[var(--ink-faint)]">
+                    {item.date}
+                  </span>
+                </div>
+                <div class="space-y-2.5 text-[14.5px] text-[var(--ink-mute)] leading-relaxed max-w-3xl">
+                  {item.description.map((d) => (
+                    <p>{d}</p>
+                  ))}
+                </div>
+                {item.stack && item.stack.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-4">
+                    {item.stack.map((s) => (
+                      <span class="chip">{s}</span>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ))
+          }
+        </ol>
       </div>
     </section>
-    <section class="mt-10 max-w-screen-md mx-8 md:mx-auto">
-      <h2 class="text-xl font-medium mb-2 text-neutral-950">Education</h2>
-      <div class="flex flex-col gap-5">
-        {
-          json.education.map((item) => (
-            <div>
-              <div class="flex flex-col-reverse items-baseline sm:items-center sm:flex-row sm:justify-between mb-1 md:mb-2">
-                <h3 class="font-medium text-neutral-950">{item.title}</h3>
-                <p class="text-neutral-500 text-sm">{item.date}</p>
+
+    <!-- ─── EDUCATION ──────────────────────────────────────── -->
+    <section id="education" class="relative py-16 scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-10">
+          <h2 class="text-3xl md:text-4xl tracking-tight font-medium">
+            <span class="serif italic">Studied</span>.
+          </h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {
+            json.education.map((item) => (
+              <div class="card relative p-6 md:p-7">
+                <div class="flex flex-col-reverse items-baseline sm:flex-row sm:justify-between gap-1 mb-3">
+                  <h3 class="text-base md:text-lg font-medium tracking-normal">
+                    {item.title}
+                  </h3>
+                  <span class="mono text-[11px] tracking-normal uppercase text-[var(--ink-faint)]">
+                    {item.date}
+                  </span>
+                </div>
+                <div class="space-y-3 text-[14px] text-[var(--ink-mute)] leading-relaxed">
+                  {item.description.map((d) => (
+                    <p>{d}</p>
+                  ))}
+                </div>
               </div>
-              <div class="space-y-2">
-                {item.description.map((descriptionItem) => (
-                  <p class="text-neutral-500 text-sm">{descriptionItem}</p>
-                ))}
-              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact" class="relative py-28 scroll-mt-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <div class="flex items-center gap-3 mb-6">
+          <span
+            class="inline-flex items-center gap-2 mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-2)]"
+          >
+            <span class="size-1.5 rounded-full bg-[var(--accent)] animate-pulse"
+            ></span>
+            Open for work
+          </span>
+        </div>
+
+        <h2 class="text-[clamp(2rem,6vw,4.4rem)] leading-[1.02] tracking-[-0.025em] font-medium max-w-3xl">
+          Got a project <br class="hidden sm:block" />
+          <span class="serif italic">in mind?</span> Let&rsquo;s
+          build it.
+        </h2>
+
+        <p class="mt-6 text-[15px] md:text-[17px] text-[var(--ink-mute)] max-w-2xl leading-relaxed">
+          Whether it&rsquo;s a custom WordPress build, a Shopify storefront,
+          a React app, or something more ambitious - drop me a line.
+          I reply within a day, usually faster.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href={`mailto:${json.contact.email}`}
+            class="group inline-flex items-center gap-3 pl-5 pr-3 py-3 rounded-full bg-[var(--ink)] text-[var(--paper)] font-medium text-sm hover:bg-[var(--ink-2)] transition-all"
+          >
+            {json.contact.email}
+            <span
+              class="size-7 inline-flex items-center justify-center rounded-full bg-[var(--paper)] text-[var(--ink)] transition-transform group-hover:rotate-45"
+            >
+              <ArrowUpRight className="size-3.5" />
+            </span>
+          </a>
+
+          <a
+            href={`tel:${json.contact.tel}`}
+            class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
+          >
+            <PhoneIcon className="size-4" />
+            {json.contact.tel}
+          </a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div>
+            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+              Based in
             </div>
-          ))
-        }
+            <div class="mt-1.5">
+              {json.contact.location}
+            </div>
+          </div>
+          <div>
+            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+              Response time
+            </div>
+            <div class="mt-1.5">Within 24 hours</div>
+          </div>
+          <div>
+            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+              Connect
+            </div>
+            <div class="mt-2 flex gap-2">
+              <a
+                href={json.contact.git}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <GitHubIcon className="size-4" />
+              </a>
+              <a
+                href={json.contact.linkedIn}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <LinkedInIcon className="size-4" />
+              </a>
+              <a
+                href={json.contact.telegram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Telegram"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <TelegramIcon />
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+              >
+                <WhatsAppIcon className="size-4" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>

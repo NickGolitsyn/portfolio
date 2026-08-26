@@ -4,8 +4,9 @@
     "email": "golitsynnick@gmail.com",
     "git": "https://github.com/NickGolitsyn/",
     "linkedIn": "https://linkedin.com/in/nickgolitsyn",
+    "telegram": "https://t.me/nickgolitsyn",
     "locationLink": "https://www.google.com/maps/place/Norfolk",
-    "location": "Norfolk, United Kingdom, GMT"
+    "location": "Norfolk, United Kingdom"
   },
   "carousel": [
     "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLq1BDWfoOyg0TGDX8RYm2lVW9SQre3HIp1JNd",
@@ -15,39 +16,103 @@
     "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLerr6xW5wGOfxBMe8FJLIZ7j9RAlvCHSi3ybu",
     "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLyYQI06tZF3Lz2avThUWK19GcdJQYOBsnSlHV"
   ],
+  "skillGroups": [
+    {
+      "label": "Frontend",
+      "items": [
+        "React",
+        "Next.js",
+        "Astro",
+        "Vite",
+        "TypeScript",
+        "JavaScript",
+        "Tailwind CSS",
+        "Framer Motion"
+      ]
+    },
+    {
+      "label": "WordPress",
+      "items": [
+        "WordPress",
+        "EtchWP",
+        "ACF",
+        "ACSS",
+        "Custom Plugins",
+        "PHP"
+      ]
+    },
+    {
+      "label": "E-commerce",
+      "items": [
+        "Shopify",
+        "Stripe",
+        "WooCommerce"
+      ]
+    },
+    {
+      "label": "Backend",
+      "items": [
+        "Convex",
+        "Laravel",
+        "Node.js",
+        "PHP",
+        "Firebase"
+      ]
+    },
+    {
+      "label": "Database & CMS",
+      "items": [
+        "PostgreSQL",
+        "MongoDB",
+        "Drizzle ORM",
+        "Sanity.io",
+        "Storyblok"
+      ]
+    },
+    {
+      "label": "Tooling",
+      "items": [
+        "Figma",
+        "Git",
+        "Vercel",
+        "Netlify",
+        "Accessibility (a11y)",
+        "SEO",
+        "PWA"
+      ]
+    }
+  ],
   "skills": [
     "React",
     "Next.js",
     "Astro",
-    "JavaScript",
+    "Vite",
     "TypeScript",
+    "JavaScript",
     "Tailwind CSS",
     "Framer Motion",
-    "REST APIs",
-    "GraphQL",
-    "Web Accessibility (a11y)",
-    "Progressive Web Apps (PWA)",
-    "Stripe Integration",
+    "WordPress",
+    "EtchWP",
+    "ACF",
+    "ACSS",
+    "Shopify",
+    "Convex",
     "Laravel",
     "PHP",
-    "Authentication & Authorization",
-    "Python",
-    "Flask",
-    "Pandas",
-    "SQL",
     "PostgreSQL",
     "MongoDB",
     "Firebase",
     "Drizzle ORM",
     "Sanity.io",
     "Figma",
-    "Deployment (Vercel, Netlify)",
-    "Git"
+    "Git",
+    "Accessibility (a11y)",
+    "SEO"
   ],
   "education": [
     {
       "date": "Oct 2023 - Jan 2024",
-      "title": "Data Analysis Bootcamp – Cambridge Spark",
+      "title": "Data Analysis Bootcamp - Cambridge Spark",
       "description": [
         "Building upon my existing knowledge in Python, I strengthened my skills during the 10-week Data Analysis Bootcamp at Cambridge Spark. The program covered Pandas for data processing and analysis, along with data visualization using Pandas, Seaborn, and Bokeh. A module on Maths for Data Analysis deepened my understanding of key mathematical concepts, while an emphasis on storytelling with data helped me learn how to craft clear, engaging narratives for different audiences.",
         "A highlight of the course was the practical Hackathon, where I applied these skills to real-world problems. The bootcamp also introduced me to statistical programming, data mining, and SQL, providing a strong foundation in data analysis and enriching my ability to work with complex datasets."
@@ -57,8 +122,7 @@
       "date": "Sep 2019 - Jun 2023",
       "title": "IThub College",
       "description": [
-        "During my four years at IThub College, I earned a diploma in Front-End Web Development, along with certifications such as IC3 Computing Fundamentals and Microsoft’s Introduction to Programming Using JavaScript. The program gave me a strong foundation in modern web technologies while also broadening my knowledge across related IT fields.",
-
+        "During my four years at IThub College, I earned a diploma in Front-End Web Development, along with certifications such as IC3 Computing Fundamentals and Microsoft's Introduction to Programming Using JavaScript. The program gave me a strong foundation in modern web technologies while also broadening my knowledge across related IT fields.",
         "My studies included UX/UI principles, database management with SQL, PostgreSQL, and MySQL, and programming in JavaScript, Python, and Dart (Flutter). I also gained exposure to project management, testing, and DevOps practices, equipping me with versatile skills to contribute across different areas of software development and IT."
       ]
     }
@@ -68,26 +132,30 @@
       "date": "Oct 2024 - Present",
       "title": "Strange Tech",
       "description": [
-        "At Strange Tech, I work as a versatile developer, contributing across a wide range of projects depending on what’s needed. My role often involves building and maintaining websites and applications using WordPress, Laravel, React, and Flutter. I spend a lot of time creating and refining UIs, ensuring sites are accessible, optimized for SEO, and perform well for end users.",
-        "Alongside frontend development, I also support backend tasks, fix bugs, and handle general problem-solving across projects. I provide reliable full-stack support within the team, adapting quickly to different technologies and requirements."
+        "At Strange Tech I work as a versatile developer on client sites, including Halfords Business and Daytona, as part of a team. Day-to-day that means WordPress (EtchWP, ACF, ACSS), Laravel, React, and Flutter - building and refining UIs, and keeping sites accessible, fast, and SEO-ready.",
+        "I also support backend work, fix bugs, and pick up whatever the project needs. Full-stack support within the team, adapting quickly to different technologies and requirements."
       ],
       "stack": [
         "React",
         "TypeScript",
-        "Flutter",
-        "PHP",
-        "Laravel",
         "WordPress",
-        "Etch",
+        "EtchWP",
+        "ACF",
+        "ACSS",
+        "Laravel",
+        "PHP",
+        "Flutter",
         "SEO",
-        "Accessibility (a11y)"
+        "a11y"
       ]
     },
     {
       "date": "Oct 2023 - Apr 2024",
-      "title": "Orthodox parish website",
-      "description": ["Developed a website for a local orthodox parish."],
-      "stack": ["NextJS", "TypeScript", "Tailwind", "Sanity.io"]
+      "title": "Orthodox Parish Website",
+      "description": [
+        "Developed a multilingual website for a local Orthodox parish, focused on accessibility, performance, and clean editorial design."
+      ],
+      "stack": ["Next.js", "TypeScript", "Tailwind", "Sanity.io"]
     },
     {
       "date": "Jan 2024",
@@ -99,7 +167,7 @@
     },
     {
       "date": "Dec 2023",
-      "title": "Christmas card shop website",
+      "title": "Christmas Card Shop",
       "description": [
         "Developed a responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels. Utilized Astro and Svelte for optimized performance and efficient front-end development. Implemented Firebase for secure user authentication and data storage."
       ],
@@ -107,91 +175,76 @@
     },
     {
       "date": "Aug - Sep 2023",
-      "title": "Chimeras (Blog website)",
+      "title": "Chimeras - Blog Website",
       "description": [
         "Completed a project, developing a visually appealing blog website using Astro with React. Implemented Decap as the CMS and used Tailwind for styling."
       ],
       "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"]
-    },
-    {
-      "date": "Sep - Oct 2022",
-      "title": "Coin collection sorting",
-      "description": [
-        "Worked on a coin collection, undertaking tasks such as cleaning, sorting, and cataloguing coins for a sales database. Additionally, physically organized coins into designated bags for enhanced sorting efficiency."
-      ],
-      "stack": ["Excel", "SQL", "Database management"]
     }
   ],
   "projects": [
     {
-      "title": "Ressurection Egg Shop",
-      "description": "Website with statistics for a Euro 2024 prediction game.",
-      "stack": ["NextJS", "Stripe", "Tailwind", "Framer Motion"],
+      "title": "Orthodox Pilgrim",
+      "description": "A directory for finding Orthodox Christian parishes and holy places around the world.",
+      "stack": ["Vite", "React", "Convex", "Tailwind"],
+      "url": "https://www.orthodoxpilgrim.org/"
+    },
+    {
+      "title": "Snapshot Drones",
+      "description": "A marketing site for a drone services business, with enquiries handled through Resend.",
+      "stack": ["Next.js", "Tailwind", "Resend"],
+      "url": "https://www.snapshotdrones.co.uk/"
+    },
+    {
+      "title": "Resurrection Egg Shop",
+      "description": "An e-commerce shop selling collectible eggs. Custom checkout, motion-rich product pages, and a refined editorial feel.",
+      "stack": ["Next.js", "Stripe", "Tailwind", "Framer Motion"],
       "url": "https://www.glebfeels.com/en"
     },
     {
-      "title": "Euro 2024 predictor",
-      "description": "Website with statistics for a Euro 2024 prediction game.",
-      "stack": ["NextJS", "Google Sheets API", "Tailwind", "shadcn/ui"],
+      "title": "Euro 2024 Predictor",
+      "description": "Live statistics dashboard for a Euro 2024 prediction game - fed by Google Sheets and styled with shadcn/ui.",
+      "stack": ["Next.js", "Google Sheets API", "Tailwind", "shadcn/ui"],
       "url": "https://euro2024.nickgolitsyn.com/"
     },
     {
-      "title": "Orthodox parish website",
-      "description": "Website for an Romanian Orthodox Parish in based Norfolk.",
-      "stack": ["NextJS", "TypeScript", "Tailwind", "Sanity.io"],
+      "title": "Orthodox Parish Website",
+      "description": "Multilingual website for a Romanian Orthodox parish based in Norfolk. Focused on accessibility and slow, considered typography.",
+      "stack": ["Next.js", "TypeScript", "Tailwind", "Sanity.io"],
       "url": "https://www.parohianorwich.org/en"
     },
     {
-      "title": "Christmas card shop website",
-      "description": "Responsive e-commerce website selling Christmas cards for Serbian influencer Gleb Feels.",
+      "title": "Christmas Card Shop",
+      "description": "Responsive e-commerce site selling seasonal Christmas cards for Serbian influencer Gleb Feels.",
       "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"],
       "url": "https://cards.glebfeels.com/"
     },
     {
-      "title": "Portfolio website",
-      "description": "My old portfolio website.",
-      "stack": [
-        "Astro",
-        "TypeScript",
-        "React",
-        "Storyblok",
-        "Tailwind",
-        "Framer-Motion"
-      ],
+      "title": "Portfolio (v2)",
+      "description": "My previous portfolio - CMS-driven content with Storyblok, Astro and a focus on micro-interactions.",
+      "stack": ["Astro", "TypeScript", "React", "Storyblok", "Tailwind", "Framer Motion"],
       "git": "https://github.com/NickGolitsyn/portfoliov2/",
       "url": "https://portfoliov2-nickgolitsyn.vercel.app/"
     },
     {
-      "title": "Chimeras (Blog website)",
-      "description": "Blog website with a unique content hierarchy.",
+      "title": "Chimeras Blog",
+      "description": "An editorial blog with a unique content hierarchy, powered by Decap CMS and rendered with Astro.",
       "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"],
       "git": "https://github.com/NickGolitsyn/astro-decap",
       "url": "https://chimeras-blog.netlify.app/"
     },
     {
       "title": "Vertushka",
-      "description": "Board game online spinner.",
+      "description": "A board-game online spinner - installable as a PWA so it works offline at the table.",
       "stack": ["JavaScript", "PWA", "HTML", "CSS"],
       "url": "https://vertushka2.netlify.app/"
     },
     {
       "title": "Countdown",
-      "description": "Website that counts down to a specific date.",
+      "description": "A small countdown utility that ticks down to a specific date with a smooth UI.",
       "stack": ["React"],
       "git": "https://github.com/NickGolitsyn/countdown",
       "url": "https://countdownng.netlify.app/"
-    },
-    {
-      "title": "Sergey Kudrin",
-      "description": "Digital exhibition website for a photographer, displaying his works.",
-      "stack": ["JavaScript", "HTML", "CSS"],
-      "url": "https://kudrin.netlify.app/"
-    },
-    {
-      "title": "TRVL",
-      "description": "Skeleton one page website for tourists to find out information about their travel destinations.",
-      "stack": ["JavaScript", "HTML", "CSS"],
-      "url": "https://trvl.netlify.app/"
     }
   ]
 }

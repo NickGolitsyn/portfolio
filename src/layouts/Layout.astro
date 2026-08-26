@@ -1,7 +1,7 @@
 ---
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer.astro";
-import { Image } from "astro:assets";
+import Cursor from "../components/Cursor";
 
 interface Props {
   title: string;
@@ -11,82 +11,299 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="scroll-p-20 sm:scroll-p-24">
+<html lang="en" class="scroll-p-32">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="Nick Golitsyn Portfolio Website | Web Developer"
+      content="Nick Golitsyn - Web Developer building clean, modern, performant websites with React, WordPress, Shopify and Convex."
     />
     <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#f6f3ec" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
-    <!-- Preconnect to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Load fonts with display swap -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body class="relative min-h-screen overflow-x-hidden antialiased">
+    <Cursor client:load />
     <Navbar client:load />
-    <div
-      class="absolute top-0 -z-10 overflow-hidden print:hidden"
-      aria-hidden="true"
-    >
-      <Image
-        src="/gradient.webp"
-        alt="gradient"
-        id="gradient"
-        width={1680}
-        height={790}
-        loading="eager"
-      />
-    </div>
     <slot />
     <Footer />
-    <script>
-      const gradientElement = document.getElementById("gradient");
-      if (gradientElement) {
-        gradientElement.ondragstart = function () {
-          return false;
-        };
-      }
-    </script>
   </body>
 </html>
 <style is:global>
+  :root {
+    --paper: #f6f3ec;
+    --paper-raised: #faf8f3;
+    --ink: #1c1a16;
+    --ink-2: #3d3a34;
+    --ink-mute: #5c5850;
+    --ink-faint: #8a857c;
+    --line: rgba(92, 138, 176, 0.22);
+    --line-major: rgba(72, 118, 158, 0.32);
+    --line-strong: rgba(28, 26, 22, 0.12);
+    --grid: rgba(80, 118, 150, 0.08);
+    --grid-major: rgba(70, 108, 145, 0.13);
+    --accent: #3d6b8c;
+    --accent-soft: #5a8aaa;
+  }
+
   html {
-    font-family: system-ui, sans-serif;
-    background-size: 224px;
+    background-color: var(--paper);
     scroll-behavior: smooth;
+    color-scheme: light;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
+
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(to right, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-major) 1px, transparent 1px),
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size:
+      120px 120px,
+      120px 120px,
+      24px 24px,
+      24px 24px;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    color: var(--ink);
+  }
+
+  body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.022;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    background-repeat: repeat;
+  }
+
+  /* ── Typography ───────────────────────────────────────────── */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "DM Sans", system-ui, sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .serif {
+    font-family: "Instrument Serif", "DM Serif Display", Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .mono {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+    font-feature-settings: "ss01", "ss02", "cv01";
+  }
+  code, pre {
+    font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  }
+
+  /* ── Section + utility styles ─────────────────────────────── */
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, var(--line-strong) 20%, var(--line-strong) 80%, transparent);
+  }
+
+  /* Skill badge */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-2);
+    padding: 5px 10px;
+    border: 1px solid var(--line-strong);
+    background: var(--paper-raised);
+    border-radius: 4px;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .chip:hover {
+    color: var(--ink);
+    border-color: rgba(28, 26, 22, 0.28);
+    background: #fff;
+  }
+  .chip::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  /* Project card */
+  .card {
+    position: relative;
+    background: var(--paper-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    transition:
+      border-color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+  .card:hover {
+    border-color: rgba(28, 26, 22, 0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -20px rgba(28, 26, 22, 0.28);
+  }
+
+  /* Selection */
+  ::selection {
+    background: rgba(61, 107, 140, 0.22);
+    color: var(--ink);
+  }
+
   a {
-    font-family: "Prompt", monospace;
+    color: inherit;
   }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
+
   .print-force-new-page {
     page-break-before: always;
+  }
+
+  /* ── Custom cursor ────────────────────────────────────────── */
+  html.has-custom-cursor,
+  html.has-custom-cursor * {
+    cursor: none !important;
+  }
+
+  .cursor-ring {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid #fff;
+    border-radius: 50%;
+    background: transparent;
+    pointer-events: none;
+    align-items: center;
+    justify-content: center;
+    mix-blend-mode: difference;
+    will-change: transform;
+  }
+  html.has-custom-cursor .cursor-ring {
+    display: flex;
+  }
+  @media print {
+    .cursor-ring {
+      display: none !important;
+    }
+  }
+
+  .cursor-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #fff;
+    transform: scale(1);
+    transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  html.cursor-hover .cursor-dot {
+    transform: scale(3.4);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor-dot {
+      transition: none;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  /* ── Reveal-on-load animation ─────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: reveal 0.7s ease-out forwards;
+  }
+  @keyframes reveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ── Image loading shimmer ───────────────────────────────── */
+  .img-frame {
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(135deg, #efebe3 0%, #e7e2d8 100%);
+  }
+  .img-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, var(--line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+  .img-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg,
+      transparent 0%,
+      transparent 35%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 65%,
+      transparent 100%);
+    background-size: 220% 100%;
+    animation: shimmer 1.6s infinite linear;
+    pointer-events: none;
+  }
+  .img-frame.loaded::after {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .img-frame img {
+    opacity: 0;
+    transform: scale(1.02);
+    transition: opacity 0.6s ease, transform 0.8s ease;
+  }
+  .img-frame.loaded img {
+    opacity: 1;
+    transform: scale(1);
+  }
+  @keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
   }
 </style>

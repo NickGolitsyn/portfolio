@@ -1,19 +1,61 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import json from "../../data/data.json";
-import {
-  motion,
-  useMotionValue,
-  animate,
-} from "framer-motion";
+import { motion, useMotionValue, animate } from "framer-motion";
 import useMeasure from "react-use-measure";
 
 const { carousel } = json;
 
+interface FrameProps {
+  src: string;
+  index: number;
+}
+
+function Frame({ src, index }: FrameProps) {
+  const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    if (imgRef.current?.complete) setLoaded(true);
+  }, []);
+
+  const tilt = index % 2 === 0 ? "2deg" : "-2deg";
+
+  return (
+    <div
+      className="relative min-w-[260px] sm:min-w-[300px] md:min-w-[320px] aspect-[16/10] select-none transition-all duration-500 ease-out group-hover:brightness-[0.7] group-hover:blur-[2px] hover:!blur-none hover:!brightness-100 hover:scale-[1.04] hover:rotate-0"
+      style={{ transform: `rotate(${tilt})` }}
+    >
+      <div
+        className={`img-frame relative w-full h-full rounded-[10px] border border-[rgba(28,26,22,0.12)] shadow-[0_14px_40px_-22px_rgba(28,26,22,0.28)] ${loaded ? "loaded" : ""}`}
+      >
+        {!loaded && (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-[1]">
+            <div className="relative w-10 h-10">
+              <div className="absolute inset-0 rounded-full border border-[rgba(28,26,22,0.16)]" />
+              <div className="absolute inset-1.5 rounded-full border border-[rgba(28,26,22,0.12)] animate-[spin_2s_linear_infinite] [border-top-color:var(--ink)]" />
+            </div>
+          </div>
+        )}
+
+        <img
+          ref={imgRef}
+          className="absolute inset-0 w-full h-full object-cover rounded-[10px]"
+          src={src}
+          alt={`Project preview ${index + 1}`}
+          loading="lazy"
+          crossOrigin="anonymous"
+          onLoad={() => setLoaded(true)}
+        />
+      </div>
+    </div>
+  );
+}
+
 export default function Carousel() {
-  const FAST_DURATION = 25;
-  const SLOW_DURATION = 75;
+  const FAST_DURATION = 30;
+  const SLOW_DURATION = 80;
   const [duration, setDuration] = useState(FAST_DURATION);
-  let [ref, { width }] = useMeasure();
+  const [ref, { width }] = useMeasure();
   const xTranslation = useMotionValue(0);
 
   const [mustFinish, setMustFinish] = useState(false);
@@ -21,7 +63,7 @@ export default function Carousel() {
 
   useEffect(() => {
     let controls;
-    let finalPosition = -width / 2 - 20;
+    const finalPosition = -width / 2 - 20;
 
     if (mustFinish) {
       controls = animate(xTranslation, [xTranslation.get(), finalPosition], {
@@ -45,22 +87,31 @@ export default function Carousel() {
   }, [xTranslation, width, duration, rerender]);
 
   return (
-    <div className="w-screen overflow-hidden py-10">
-      <div className="relative h-[200px]">
+    <div
+      className="relative w-screen overflow-hidden py-12"
+      style={{
+        maskImage:
+          "linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent), radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%)",
+        WebkitMaskImage:
+          "linear-gradient(to right, transparent, #000 5.5rem, #000 calc(100% - 5.5rem), transparent), radial-gradient(ellipse 100% 86% at 50% 50%, #000 62%, transparent 100%)",
+        maskComposite: "intersect",
+        WebkitMaskComposite: "source-in",
+      }}
+    >
+      <div className="relative">
         <motion.div
-          className="absolute left-0 flex gap-10 group"
+          className="flex gap-10 group"
           ref={ref}
           style={{ x: xTranslation }}
         >
           {[...carousel, ...carousel].map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              className={`min-w-[280px] sm:min-w-[320px] md:min-w-[280px] lg:min-w-[320px] border-2 rounded-lg select-none transition-all duration-300 group-hover:brightness-75 group-hover:blur-sm hover:!blur-none hover:!brightness-100 hover:scale-110 hover:rotate-0 overflow-hidden ${index % 2 === 0 ? "rotate-3" : "-rotate-3"}`}
-              onHoverStart={() => {
+              onMouseEnter={() => {
                 setMustFinish(true);
                 setDuration(SLOW_DURATION);
               }}
-              onHoverEnd={() => {
+              onMouseLeave={() => {
                 setMustFinish(true);
                 setDuration(FAST_DURATION);
               }}
@@ -73,15 +124,8 @@ export default function Carousel() {
                 setDuration(FAST_DURATION);
               }}
             >
-              <div className="absolute inset-0 rounded-md overflow-hidden after:absolute after:pointer-events-none after:w-full after:h-full after:-left-full hover:after:left-full hover:after:duration-1000 hover:after:transition-all after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-transparent after:-skew-x-12"></div>
-              <img
-                className="w-full h-full object-cover"
-                src={item}
-                alt={"website"}
-                loading="lazy"
-                crossOrigin="anonymous"
-              />
-            </motion.div>
+              <Frame src={item} index={index} />
+            </div>
           ))}
         </motion.div>
       </div>
