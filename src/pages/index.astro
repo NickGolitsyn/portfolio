@@ -12,9 +12,11 @@ import { GitHubIcon } from "../components/icons/GitHubIcon";
 import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
 import { TelegramIcon } from "../components/icons/TelegramIcon";
-import Carousel from "../components/Carousel";
+import ProjectGallery from "../components/ProjectGallery";
 
 const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
+const featuredProjects = json.projects.filter((item) => item.featured);
+const otherProjects = json.projects.filter((item) => !item.featured);
 ---
 
 <Layout title="Nick Golitsyn - Web Developer">
@@ -292,7 +294,7 @@ const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
     <!-- ─── PROJECTS ────────────────────────────────────────── -->
     <section id="projects" class="relative pt-12 pb-24 print-force-new-page scroll-mt-24">
       <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
-        <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-2">
+        <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14 md:mb-20">
           <div>
             <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
               Recent <span class="serif italic">projects</span>.
@@ -303,66 +305,147 @@ const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
             and tools. Agency work for Strange Tech is covered in experience.
           </p>
         </header>
-      </div>
 
-      <div class="mt-2 mb-12">
-        <Carousel client:load />
-      </div>
-
-      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="space-y-20 md:space-y-28">
           {
-            json.projects.map((item) => (
-              <article
-                class="card group relative p-6 md:p-7 flex flex-col gap-5 break-inside-avoid"
-              >
-                <div class="flex items-start justify-between gap-4">
-                  <div class="flex-1">
-                    <h3 class="text-xl md:text-[22px] tracking-[-0.01em] font-medium leading-tight">
-                      {item.url ? (
-                        <a
-                          target="_blank"
-                          rel="noreferrer"
-                          href={item.url}
-                          class="inline-flex items-center gap-2 group/title"
-                        >
-                          <span class="group-hover/title:text-[var(--accent)] transition-colors">
-                            {item.title}
-                          </span>
-                          <ArrowUpRight className="size-4 text-[var(--accent)] transition-transform group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5" />
-                        </a>
-                      ) : (
-                        item.title
-                      )}
-                    </h3>
-                  </div>
+            featuredProjects.map((item, i) => (
+              <article class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
+                <div class:list={["md:col-span-7", i % 2 === 1 && "md:order-2"]}>
+                  <ProjectGallery
+                    client:load
+                    title={item.title}
+                    kind={item.kind}
+                    images={item.images}
+                    variant="featured"
+                    href={item.url}
+                    priority={i === 0}
+                  />
                 </div>
 
-                <p class="text-[14px] text-[var(--ink-mute)] leading-relaxed">
-                  {item.description}
-                </p>
-
-                <div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-[rgba(28,26,22,0.1)]">
-                  <div class="flex flex-wrap gap-1.5">
-                    {item.stack.map((stackItem) => (
-                      <span class="chip">{stackItem}</span>
-                    ))}
+                <div class="md:col-span-5">
+                  <div class="flex items-baseline gap-3 mb-3">
+                    <span class="mono text-[11px] tracking-[0.18em] text-[var(--ink-faint)]">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span class="eyebrow">{item.kind}</span>
                   </div>
-                  {item.git && (
-                    <a
-                      href={item.git}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`Source on GitHub: ${item.title}`}
-                      class="shrink-0 size-8 inline-flex items-center justify-center rounded-full text-[var(--ink-mute)] hover:text-[var(--ink)] hover:bg-white/70 transition-colors"
-                    >
-                      <GitHubIcon className="size-3.5" />
-                    </a>
-                  )}
+
+                  <h3 class="text-2xl md:text-[28px] tracking-[-0.02em] font-medium leading-tight">
+                    {item.url ? (
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={item.url}
+                        class="inline-flex items-center gap-2 group/title"
+                      >
+                        <span class="serif italic group-hover/title:text-[var(--accent)] transition-colors">
+                          {item.title}
+                        </span>
+                        <ArrowUpRight className="size-4 text-[var(--accent)] transition-transform group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5" />
+                      </a>
+                    ) : (
+                      <span class="serif italic">{item.title}</span>
+                    )}
+                  </h3>
+
+                  <p class="mt-4 text-[15px] text-[var(--ink-mute)] leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div class="mt-6 flex items-center justify-between gap-4 pt-5 border-t border-[rgba(28,26,22,0.1)]">
+                    <div class="flex flex-wrap gap-1.5">
+                      {item.stack.map((stackItem) => (
+                        <span class="chip">{stackItem}</span>
+                      ))}
+                    </div>
+                    {"git" in item && item.git && (
+                      <a
+                        href={item.git}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Source on GitHub: ${item.title}`}
+                        class="shrink-0 size-8 inline-flex items-center justify-center rounded-full text-[var(--ink-mute)] hover:text-[var(--ink)] hover:bg-white/70 transition-colors"
+                      >
+                        <GitHubIcon className="size-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             ))
           }
+        </div>
+
+        <div class="mt-24 md:mt-28">
+          <div class="flex items-end justify-between gap-4 mb-8">
+            <h3 class="text-xl md:text-2xl tracking-[-0.02em] font-medium">
+              More <span class="serif italic">work</span>.
+            </h3>
+            <span class="eyebrow hidden sm:inline">Selected &amp; personal</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {
+              otherProjects.map((item) => (
+                <article class="card group relative overflow-hidden flex flex-col break-inside-avoid">
+                  <ProjectGallery
+                    client:visible
+                    title={item.title}
+                    kind={item.kind}
+                    images={item.images}
+                    variant="card"
+                    href={item.url}
+                  />
+
+                  <div class="p-6 md:p-7 flex flex-col gap-5 flex-1">
+                    <div>
+                      <div class="eyebrow mb-2">{item.kind}</div>
+                      <h3 class="text-xl md:text-[22px] tracking-[-0.01em] font-medium leading-tight">
+                        {item.url ? (
+                          <a
+                            target="_blank"
+                            rel="noreferrer"
+                            href={item.url}
+                            class="inline-flex items-center gap-2 group/title"
+                          >
+                            <span class="group-hover/title:text-[var(--accent)] transition-colors">
+                              {item.title}
+                            </span>
+                            <ArrowUpRight className="size-4 text-[var(--accent)] transition-transform group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5" />
+                          </a>
+                        ) : (
+                          item.title
+                        )}
+                      </h3>
+                    </div>
+
+                    <p class="text-[14px] text-[var(--ink-mute)] leading-relaxed">
+                      {item.description}
+                    </p>
+
+                    <div class="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-[rgba(28,26,22,0.1)]">
+                      <div class="flex flex-wrap gap-1.5">
+                        {item.stack.map((stackItem) => (
+                          <span class="chip">{stackItem}</span>
+                        ))}
+                      </div>
+                      {"git" in item && item.git && (
+                        <a
+                          href={item.git}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`Source on GitHub: ${item.title}`}
+                          class="shrink-0 size-8 inline-flex items-center justify-center rounded-full text-[var(--ink-mute)] hover:text-[var(--ink)] hover:bg-white/70 transition-colors"
+                        >
+                          <GitHubIcon className="size-3.5" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
         </div>
       </div>
     </section>

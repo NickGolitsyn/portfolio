@@ -8,14 +8,6 @@
     "locationLink": "https://www.google.com/maps/place/Norfolk",
     "location": "Norfolk, United Kingdom"
   },
-  "carousel": [
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLq1BDWfoOyg0TGDX8RYm2lVW9SQre3HIp1JNd",
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLwAnCQ7JVMlbprghj7nvHL8FdOoJS6iPDKYum",
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJL7Msy6tHWc8It4CZKRuDzSn51QNlG6px2m7Vi",
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJL91BSNibwegzxjXHqQcLDfBNUrRWlTasEJ7uV",
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLerr6xW5wGOfxBMe8FJLIZ7j9RAlvCHSi3ybu",
-    "https://cethf9v3hz.ufs.sh/f/42F9CC1S4xJLyYQI06tZF3Lz2avThUWK19GcdJQYOBsnSlHV"
-  ],
   "skillGroups": [
     {
       "label": "Frontend",
@@ -185,66 +177,111 @@
   "projects": [
     {
       "title": "Orthodox Pilgrim",
+      "kind": "Directory",
+      "featured": true,
       "description": "A directory for finding Orthodox Christian parishes and holy places around the world.",
       "stack": ["Vite", "React", "Convex", "Tailwind"],
-      "url": "https://www.orthodoxpilgrim.org/"
+      "url": "https://www.orthodoxpilgrim.org/",
+      "images": [
+        "/projects/orthodox-pilgrim/01.webp",
+        "/projects/orthodox-pilgrim/02.webp",
+        "/projects/orthodox-pilgrim/03.webp"
+      ]
     },
     {
       "title": "Snapshot Drones",
+      "kind": "Marketing",
+      "featured": true,
       "description": "A marketing site for a drone services business, with enquiries handled through Resend.",
       "stack": ["Next.js", "Tailwind", "Resend"],
-      "url": "https://www.snapshotdrones.co.uk/"
+      "url": "https://www.snapshotdrones.co.uk/",
+      "images": [
+        "/projects/snapshot-drones/01.webp",
+        "/projects/snapshot-drones/02.webp",
+        "/projects/snapshot-drones/03.webp"
+      ]
     },
     {
       "title": "Resurrection Egg Shop",
+      "kind": "E-commerce",
+      "featured": true,
       "description": "An e-commerce shop selling collectible eggs. Custom checkout, motion-rich product pages, and a refined editorial feel.",
       "stack": ["Next.js", "Stripe", "Tailwind", "Framer Motion"],
-      "url": "https://www.glebfeels.com/en"
-    },
-    {
-      "title": "Euro 2024 Predictor",
-      "description": "Live statistics dashboard for a Euro 2024 prediction game - fed by Google Sheets and styled with shadcn/ui.",
-      "stack": ["Next.js", "Google Sheets API", "Tailwind", "shadcn/ui"],
-      "url": "https://euro2024.nickgolitsyn.com/"
+      "url": "https://www.glebfeels.com/en",
+      "images": [
+        "/projects/resurrection-egg-shop/01.webp",
+        "/projects/resurrection-egg-shop/02.webp"
+      ]
     },
     {
       "title": "Orthodox Parish Website",
+      "kind": "Parish",
+      "featured": true,
       "description": "Multilingual website for a Romanian Orthodox parish based in Norfolk. Focused on accessibility and slow, considered typography.",
       "stack": ["Next.js", "TypeScript", "Tailwind", "Sanity.io"],
-      "url": "https://www.parohianorwich.org/en"
+      "url": "https://www.parohianorwich.org/en",
+      "images": [
+        "/projects/orthodox-parish/01.webp",
+        "/projects/orthodox-parish/02.webp",
+        "/projects/orthodox-parish/03.webp"
+      ]
     },
     {
       "title": "Christmas Card Shop",
+      "kind": "E-commerce",
+      "featured": false,
       "description": "Responsive e-commerce site selling seasonal Christmas cards for Serbian influencer Gleb Feels.",
       "stack": ["Astro", "Svelte", "TypeScript", "Tailwind", "Firebase"],
-      "url": "https://cards.glebfeels.com/"
+      "url": "https://cards.glebfeels.com/",
+      "images": ["/projects/christmas-card-shop/01.webp"]
+    },
+    {
+      "title": "Euro 2024 Predictor",
+      "kind": "Tool",
+      "featured": false,
+      "description": "Live statistics dashboard for a Euro 2024 prediction game - fed by Google Sheets and styled with shadcn/ui.",
+      "stack": ["Next.js", "Google Sheets API", "Tailwind", "shadcn/ui"],
+      "url": "https://euro2024.nickgolitsyn.com/",
+      "images": ["/projects/euro-2024-predictor/01.webp"]
     },
     {
       "title": "Portfolio (v2)",
+      "kind": "Portfolio",
+      "featured": false,
       "description": "My previous portfolio - CMS-driven content with Storyblok, Astro and a focus on micro-interactions.",
       "stack": ["Astro", "TypeScript", "React", "Storyblok", "Tailwind", "Framer Motion"],
       "git": "https://github.com/NickGolitsyn/portfoliov2/",
-      "url": "https://portfoliov2-nickgolitsyn.vercel.app/"
+      "url": "https://portfoliov2-nickgolitsyn.vercel.app/",
+      "images": ["/projects/portfolio-v2/01.webp"]
     },
     {
       "title": "Chimeras Blog",
+      "kind": "Editorial",
+      "featured": false,
       "description": "An editorial blog with a unique content hierarchy, powered by Decap CMS and rendered with Astro.",
       "stack": ["Astro", "React", "TypeScript", "Tailwind", "Decap"],
       "git": "https://github.com/NickGolitsyn/astro-decap",
-      "url": "https://chimeras-blog.netlify.app/"
+      "url": "https://chimeras-blog.netlify.app/",
+      "images": ["/projects/chimeras-blog/01.webp"]
     },
     {
       "title": "Vertushka",
+      "kind": "Tool",
+      "featured": false,
       "description": "A board-game online spinner - installable as a PWA so it works offline at the table.",
       "stack": ["JavaScript", "PWA", "HTML", "CSS"],
-      "url": "https://vertushka2.netlify.app/"
+      "url": "https://vertushka2.netlify.app/",
+      "images": ["/projects/vertushka/01.webp"]
     },
     {
       "title": "Countdown",
+      "kind": "Tool",
+      "featured": false,
       "description": "A small countdown utility that ticks down to a specific date with a smooth UI.",
       "stack": ["React"],
       "git": "https://github.com/NickGolitsyn/countdown",
-      "url": "https://countdownng.netlify.app/"
+      "url": "https://countdownng.netlify.app/",
+      "images": ["/projects/countdown/01.webp"]
     }
   ]
 }
