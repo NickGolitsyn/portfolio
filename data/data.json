@@ -9,11 +9,11 @@
     "location": "Earsham, Norfolk"
   },
   "pricing": {
-    "ownership": "The site is a one-off. You own it. You pay your own domain each year (about £5–10); there is no monthly fee from me unless you want optional care.",
+    "ownership": "The site is a one-off. You own it. You pay for your own domain; there is no monthly fee from me unless you want optional care.",
     "care": {
       "from": "£8",
       "range": "£5–15",
-      "blurb": "Optional care from £8/month (typically £5–15 depending on the site): I can handle domain and hosting for you, plus light updates as agreed."
+      "blurb": "Optional care from £8/month: I can handle domain and hosting for you, plus light updates as agreed."
     },
     "tiers": [
       {
