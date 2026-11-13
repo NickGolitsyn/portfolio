@@ -11,8 +11,9 @@ const navItems: NavItem[] = [
   { id: "home", label: "Index" },
   { id: "about", label: "About" },
   { id: "projects", label: "Work" },
-  { id: "experience", label: "Experience" },
+  { id: "pricing", label: "Pricing" },
   { id: "contact", label: "Contact" },
+  { id: "experience", label: "Experience" },
 ];
 
 export default function Navbar() {

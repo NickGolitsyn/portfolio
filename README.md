@@ -1,7 +1,8 @@
 # TODO
 - [ ] Add colour
 - [ ] Add logo to navbar or website
-- [ ] Add contact section w/ calendly or cal.com
+- [x] Add contact form (Formspree - set `PUBLIC_FORMSPREE_ID` in `.env`)
+- [ ] Optional: Calendly / cal.com alongside the form
 - [ ] Add the cool logo effect
 - [ ] Add blog
 - [x] Check Google Search Console

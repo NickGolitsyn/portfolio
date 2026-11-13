@@ -13,13 +13,15 @@ import { LinkedInIcon } from "../components/icons/LinkedInIcon";
 import { WhatsAppIcon } from "../components/icons/WhatsAppIcon";
 import { TelegramIcon } from "../components/icons/TelegramIcon";
 import ProjectGallery from "../components/ProjectGallery";
+import ContactForm from "../components/ContactForm";
 
 const whatsappHref = `https://wa.me/${json.contact.tel.replace(/\D/g, "")}`;
 const featuredProjects = json.projects.filter((item) => item.featured);
 const otherProjects = json.projects.filter((item) => !item.featured);
+const formspreeId = import.meta.env.PUBLIC_FORMSPREE_ID as string | undefined;
 ---
 
-<Layout title="Nick Golitsyn - Web Developer">
+<Layout title="Nick Golitsyn - Websites for local businesses | Earsham, Norfolk">
   <main class="relative">
     <!-- ─── HERO ────────────────────────────────────────────── -->
     <section id="home" class="relative min-h-[100svh] flex items-center">
@@ -45,10 +47,10 @@ const otherProjects = json.projects.filter((item) => !item.featured);
             Nick&nbsp;Golitsyn,
             <br />
             <span class="serif italic text-[clamp(2.6rem,8vw,6.4rem)]"
-              >a developer</span
+              >websites</span
             >
             <br />
-            <span class="text-[var(--ink-mute)]">building the modern web.</span>
+            <span class="text-[var(--ink-mute)]">for local businesses.</span>
           </h1>
         </div>
 
@@ -66,11 +68,8 @@ const otherProjects = json.projects.filter((item) => !item.featured);
             <GlobeIcon className="size-3.5 self-center" />
             {json.contact.location}
           </a>.
-          I design and engineer fast, characterful websites - from custom
-          <span class="text-[var(--ink)]">WordPress</span>
-          and <span class="text-[var(--ink)]">Shopify</span> builds to
-          <span class="text-[var(--ink)]">React</span> apps powered by
-          <span class="text-[var(--ink)]">Vite</span> and <span class="text-[var(--ink)]">Convex</span>.
+          Clear pricing, you own the site, and optional care if you want me to
+          handle hosting - no heavy monthly fees.
         </div>
 
         <div
@@ -87,10 +86,19 @@ const otherProjects = json.projects.filter((item) => !item.featured);
             />
           </a>
           <a
+            href="#pricing"
+            class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
+          >
+            View pricing
+            <ArrowRight
+              className="size-4 transition-transform group-hover:translate-x-0.5"
+            />
+          </a>
+          <a
             href="#projects"
             class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
           >
-            View selected work
+            Selected work
             <ArrowRight
               className="size-4 transition-transform group-hover:translate-x-0.5"
             />
@@ -183,7 +191,7 @@ const otherProjects = json.projects.filter((item) => !item.featured);
         >
           {
             [
-              { k: "Age", v: "23" },
+              { k: "Based in", v: "Earsham" },
               { k: "Years coding", v: "6+" },
               { k: "Projects shipped", v: "20+" },
               { k: "Languages", v: "EN · RU" },
@@ -203,7 +211,7 @@ const otherProjects = json.projects.filter((item) => !item.featured);
     </section>
 
     <!-- ─── ABOUT ───────────────────────────────────────────── -->
-    <section id="about" class="relative py-24 scroll-mt-24">
+    <section id="about" class="relative py-24">
       <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
         <div class="grid grid-cols-12 gap-8 md:gap-12">
           <header class="col-span-12 md:col-span-4">
@@ -216,46 +224,42 @@ const otherProjects = json.projects.filter((item) => !item.featured);
 
           <div class="col-span-12 md:col-span-8 space-y-5 text-[15px] leading-relaxed text-[var(--ink-mute)]">
             <p>
-              I&rsquo;m a <span class="text-[var(--ink)]">23-year-old web developer</span>
-              focused on building clean, modern, user-friendly websites. Since
-              October 2024 I&rsquo;ve been at
-              <span class="text-[var(--ink)]">Strange Tech</span>, contributing across
-              everything from custom WordPress and Shopify builds to React and
-              Laravel applications.
+              I build websites for
+              <span class="text-[var(--ink)]">small businesses and local organisations</span>
+              around Bungay, Norfolk, and beyond - marketing sites, parish and community
+              pages, shops, and the occasional custom app. You deal with me directly:
+              clear scope, sensible pricing, and a site you own when we&rsquo;re done.
             </p>
             <p>
-              Day-to-day I work heavily with
-              <span class="text-[var(--ink)]">WordPress</span> using
-              <span class="text-[var(--ink)]">EtchWP</span>,
-              <span class="text-[var(--ink)]">ACF</span>,
-              <span class="text-[var(--ink)]">ACSS</span> and other powerful
-              plugins to push WordPress beyond the usual. On the app side I
-              build with
-              <span class="text-[var(--ink)]">React</span>,
-              <span class="text-[var(--ink)]">Vite</span> and
-              <span class="text-[var(--ink)]">Convex</span>, and I&rsquo;ve also
-              shipped <span class="text-[var(--ink)]">Shopify</span> storefronts -
-              so whether you need a marketing site, an e-commerce store, or a
-              full web app, I can take it from concept to launch.
+              Day-to-day I work with
+              <span class="text-[var(--ink)]">WordPress</span>,
+              <span class="text-[var(--ink)]">Shopify</span>, and modern
+              <span class="text-[var(--ink)]">React</span> stacks. Since October 2024
+              I&rsquo;ve also been at
+              <span class="text-[var(--ink)]">Strange Tech</span>, shipping client work
+              alongside my own projects - so you get agency-level craft without the
+              agency overhead.
             </p>
             <p>
-              My background includes a four-year diploma in Web Development at
-              IThub College and a 10-week Data Analysis bootcamp at Cambridge
-              Spark - a combination that gave me a solid engineering
-              foundation and a sharp analytical eye. Fluent in English and
-              Russian, I&rsquo;m detail-oriented, reliable, and easy to work
-              with.
+              Fluent in English and Russian. Happy to chat about a one-page site or
+              something more ambitious - send a short message and I&rsquo;ll point you
+              to the right option.
             </p>
 
             <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-3">
               {
-                ["WordPress · EtchWP", "Shopify Themes", "React + Vite", "Convex", "ACF · ACSS", "EN · RU"].map(
-                  (highlight) => (
-                    <div class="mono text-[11px] tracking-[0.12em] text-[var(--ink-2)] px-3 py-2 border border-[rgba(28,26,22,0.1)] rounded-md bg-[var(--paper-raised)]">
-                      {highlight}
-                    </div>
-                  ),
-                )
+                [
+                  "Local · Norfolk",
+                  "WordPress · Shopify",
+                  "React apps",
+                  "You own the site",
+                  "Optional care",
+                  "EN · RU",
+                ].map((highlight) => (
+                  <div class="mono text-[11px] tracking-[0.12em] text-[var(--ink-2)] px-3 py-2 border border-[rgba(28,26,22,0.1)] rounded-md bg-[var(--paper-raised)]">
+                    {highlight}
+                  </div>
+                ))
               }
             </div>
           </div>
@@ -263,46 +267,18 @@ const otherProjects = json.projects.filter((item) => !item.featured);
       </div>
     </section>
 
-    <!-- ─── SKILLS ──────────────────────────────────────────── -->
-    <section id="skills" class="relative py-20 scroll-mt-24">
-      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
-        <header class="mb-10">
-          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
-            What I <span class="serif italic">work with</span>.
-          </h2>
-        </header>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(28,26,22,0.1)] border border-[rgba(28,26,22,0.1)] rounded-lg overflow-hidden">
-          {
-            json.skillGroups.map((group) => (
-              <div class="bg-[var(--paper-raised)] p-6 hover:bg-white/70 transition-colors duration-300">
-                <h3 class="text-base font-medium mb-4">
-                  {group.label}
-                </h3>
-                <div class="flex flex-wrap gap-1.5">
-                  {group.items.map((item) => (
-                    <span class="chip">{item}</span>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
-        </div>
-      </div>
-    </section>
-
     <!-- ─── PROJECTS ────────────────────────────────────────── -->
-    <section id="projects" class="relative pt-12 pb-24 print-force-new-page scroll-mt-24">
+    <section id="projects" class="relative pt-12 pb-24 print-force-new-page">
       <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
         <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14 md:mb-20">
           <div>
             <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
-              Recent <span class="serif italic">projects</span>.
+              Selected <span class="serif italic">work</span>.
             </h2>
           </div>
           <p class="text-sm text-[var(--ink-mute)] max-w-md md:text-right">
-            Direct clients and personal projects - e-commerce, editorial,
-            and tools. Agency work for Strange Tech is covered in experience.
+            Local businesses and community sites first - then apps and experiments.
+            Agency work for Strange Tech is in experience below.
           </p>
         </header>
 
@@ -351,6 +327,15 @@ const otherProjects = json.projects.filter((item) => !item.featured);
                   <p class="mt-4 text-[15px] text-[var(--ink-mute)] leading-relaxed">
                     {item.description}
                   </p>
+
+                  {"outcome" in item && item.outcome && (
+                    <p class="mt-3 text-[14px] text-[var(--ink-2)] leading-relaxed border-l-2 border-[var(--accent)] pl-3">
+                      <span class="mono text-[10px] tracking-[0.16em] uppercase text-[var(--ink-faint)] block mb-1">
+                        Result
+                      </span>
+                      {item.outcome}
+                    </p>
+                  )}
 
                   <div class="mt-6 flex items-center justify-between gap-4 pt-5 border-t border-[rgba(28,26,22,0.1)]">
                     <div class="flex flex-wrap gap-1.5">
@@ -450,8 +435,247 @@ const otherProjects = json.projects.filter((item) => !item.featured);
       </div>
     </section>
 
+    <!-- ─── PROCESS ─────────────────────────────────────────── -->
+    <section id="process" class="relative py-20">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-12 max-w-2xl">
+          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+            Getting started is <span class="serif italic">simple</span>.
+          </h2>
+          <p class="mt-4 text-[15px] text-[var(--ink-mute)] leading-relaxed">
+            A clear path from first message to launch - without confusion or delays.
+          </p>
+        </header>
+
+        <ol class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {
+            json.process.map((step) => (
+              <li class="relative">
+                <div class="mono text-[11px] tracking-[0.2em] text-[var(--ink-faint)] mb-3">
+                  Step {step.step}
+                </div>
+                <h3 class="text-lg font-medium tracking-[-0.01em] mb-2">
+                  {step.title}
+                </h3>
+                <p class="text-[14px] text-[var(--ink-mute)] leading-relaxed">
+                  {step.blurb}
+                </p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ─────────────────────────────────────────── -->
+    <section id="pricing" class="relative py-24">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-12 max-w-2xl">
+          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+            Clear <span class="serif italic">pricing</span>.
+          </h2>
+          <p class="mt-4 text-[15px] text-[var(--ink-mute)] leading-relaxed">
+            One-off builds from £299. Pick a starting point - I&rsquo;ll confirm the
+            right fit after a short chat.
+          </p>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {
+            json.pricing.tiers.map((tier) => (
+              <article class="flex flex-col rounded-lg border border-[rgba(28,26,22,0.12)] bg-[var(--paper-raised)] p-5 md:p-6">
+                <h3 class="text-lg font-medium tracking-[-0.01em]">{tier.name}</h3>
+                <p class="mt-3">
+                  <span class="mono text-[10px] tracking-[0.16em] uppercase text-[var(--ink-faint)]">
+                    From
+                  </span>
+                  <span class="block text-3xl font-medium serif italic tracking-[-0.02em] mt-0.5">
+                    {tier.price}
+                  </span>
+                </p>
+                <p class="mt-3 text-[13px] text-[var(--ink-mute)] leading-relaxed">
+                  {tier.summary}
+                </p>
+                <ul class="mt-5 space-y-2 flex-1">
+                  {tier.features.map((f) => (
+                    <li class="text-[13px] text-[var(--ink-2)] flex gap-2">
+                      <span class="text-[var(--accent)] shrink-0" aria-hidden="true">
+                        ·
+                      </span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={`#contact`}
+                  data-tier={tier.id}
+                  class="pricing-cta mt-6 inline-flex items-center justify-center gap-1.5 rounded-full border border-[rgba(28,26,22,0.18)] px-4 py-2.5 text-sm font-medium text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/60 transition-all"
+                >
+                  Enquire
+                  <ArrowRight className="size-3.5" />
+                </a>
+              </article>
+            ))
+          }
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+          <p class="text-[14px] md:text-[15px] text-[var(--ink-mute)] leading-relaxed">
+            {json.pricing.ownership}
+          </p>
+          <p class="text-[14px] md:text-[15px] text-[var(--ink-mute)] leading-relaxed">
+            {json.pricing.care.blurb}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact" class="relative py-28">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <div class="flex items-center gap-3 mb-6">
+          <span
+            class="inline-flex items-center gap-2 mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-2)]"
+          >
+            <span class="size-1.5 rounded-full bg-[var(--accent)] animate-pulse"
+            ></span>
+            Open for projects
+          </span>
+        </div>
+
+        <h2 class="text-[clamp(2rem,6vw,4.4rem)] leading-[1.02] tracking-[-0.025em] font-medium max-w-3xl">
+          Got a project <br class="hidden sm:block" />
+          <span class="serif italic">in mind?</span> Let&rsquo;s
+          build it.
+        </h2>
+
+        <p class="mt-6 text-[15px] md:text-[17px] text-[var(--ink-mute)] max-w-2xl leading-relaxed">
+          Tell me a little about your business and what you need. I reply within a
+          day - usually faster. Prefer phone or WhatsApp? Those work too.
+        </p>
+
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+          <div class="lg:col-span-7">
+            <ContactForm client:visible formId={formspreeId} />
+          </div>
+
+          <div class="lg:col-span-5 space-y-8">
+            <div class="flex flex-wrap items-center gap-3">
+              <a
+                href={`mailto:${json.contact.email}`}
+                class="group inline-flex items-center gap-3 pl-5 pr-3 py-3 rounded-full bg-[var(--ink)] text-[var(--paper)] font-medium text-sm hover:bg-[var(--ink-2)] transition-all"
+              >
+                {json.contact.email}
+                <span
+                  class="size-7 inline-flex items-center justify-center rounded-full bg-[var(--paper)] text-[var(--ink)] transition-transform group-hover:rotate-45"
+                >
+                  <ArrowUpRight className="size-3.5" />
+                </span>
+              </a>
+
+              <a
+                href={`tel:${json.contact.tel}`}
+                class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
+              >
+                <PhoneIcon className="size-4" />
+                {json.contact.tel}
+              </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-6">
+              <div>
+                <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+                  Based in
+                </div>
+                <div class="mt-1.5">
+                  {json.contact.location}
+                </div>
+              </div>
+              <div>
+                <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+                  Response time
+                </div>
+                <div class="mt-1.5">Within 24 hours</div>
+              </div>
+              <div>
+                <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
+                  Connect
+                </div>
+                <div class="mt-2 flex gap-2">
+                  <a
+                    href={json.contact.git}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="GitHub"
+                    class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                  >
+                    <GitHubIcon className="size-4" />
+                  </a>
+                  <a
+                    href={json.contact.linkedIn}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="LinkedIn"
+                    class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                  >
+                    <LinkedInIcon className="size-4" />
+                  </a>
+                  <a
+                    href={json.contact.telegram}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Telegram"
+                    class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                  >
+                    <TelegramIcon />
+                  </a>
+                  <a
+                    href={whatsappHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="WhatsApp"
+                    class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
+                  >
+                    <WhatsAppIcon className="size-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── SKILLS ──────────────────────────────────────────── -->
+    <section id="skills" class="relative py-20">
+      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
+        <header class="mb-10">
+          <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
+            What I <span class="serif italic">work with</span>.
+          </h2>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[rgba(28,26,22,0.1)] border border-[rgba(28,26,22,0.1)] rounded-lg overflow-hidden">
+          {
+            json.skillGroups.map((group) => (
+              <div class="bg-[var(--paper-raised)] p-6 hover:bg-white/70 transition-colors duration-300">
+                <h3 class="text-base font-medium mb-4">
+                  {group.label}
+                </h3>
+                <div class="flex flex-wrap gap-1.5">
+                  {group.items.map((item) => (
+                    <span class="chip">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
     <!-- ─── EXPERIENCE ──────────────────────────────────────── -->
-    <section id="experience" class="relative py-24 scroll-mt-24">
+    <section id="experience" class="relative py-24">
       <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
         <header class="mb-12">
           <h2 class="text-3xl md:text-4xl tracking-[-0.02em] font-medium">
@@ -494,7 +718,7 @@ const otherProjects = json.projects.filter((item) => !item.featured);
     </section>
 
     <!-- ─── EDUCATION ──────────────────────────────────────── -->
-    <section id="education" class="relative py-16 scroll-mt-24">
+    <section id="education" class="relative py-16">
       <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
         <header class="mb-10">
           <h2 class="text-3xl md:text-4xl tracking-tight font-medium">
@@ -507,10 +731,10 @@ const otherProjects = json.projects.filter((item) => !item.featured);
             json.education.map((item) => (
               <div class="card relative p-6 md:p-7">
                 <div class="flex flex-col-reverse items-baseline sm:flex-row sm:justify-between gap-1 mb-3">
-                  <h3 class="text-base md:text-lg font-medium tracking-normal">
+                  <h3 class="text-base md:text-lg font-medium tracking-normal min-w-0">
                     {item.title}
                   </h3>
-                  <span class="mono text-[11px] tracking-normal uppercase text-[var(--ink-faint)]">
+                  <span class="mono text-[11px] tracking-normal uppercase text-[var(--ink-faint)] whitespace-nowrap shrink-0">
                     {item.date}
                   </span>
                 </div>
@@ -525,114 +749,17 @@ const otherProjects = json.projects.filter((item) => !item.featured);
         </div>
       </div>
     </section>
-
-    <!-- ─── CONTACT ─────────────────────────────────────────── -->
-    <section id="contact" class="relative py-28 scroll-mt-24">
-      <div class="w-full max-w-6xl mx-auto px-6 sm:px-10">
-        <div class="flex items-center gap-3 mb-6">
-          <span
-            class="inline-flex items-center gap-2 mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-2)]"
-          >
-            <span class="size-1.5 rounded-full bg-[var(--accent)] animate-pulse"
-            ></span>
-            Open for work
-          </span>
-        </div>
-
-        <h2 class="text-[clamp(2rem,6vw,4.4rem)] leading-[1.02] tracking-[-0.025em] font-medium max-w-3xl">
-          Got a project <br class="hidden sm:block" />
-          <span class="serif italic">in mind?</span> Let&rsquo;s
-          build it.
-        </h2>
-
-        <p class="mt-6 text-[15px] md:text-[17px] text-[var(--ink-mute)] max-w-2xl leading-relaxed">
-          Whether it&rsquo;s a custom WordPress build, a Shopify storefront,
-          a React app, or something more ambitious - drop me a line.
-          I reply within a day, usually faster.
-        </p>
-
-        <div class="mt-10 flex flex-wrap items-center gap-3">
-          <a
-            href={`mailto:${json.contact.email}`}
-            class="group inline-flex items-center gap-3 pl-5 pr-3 py-3 rounded-full bg-[var(--ink)] text-[var(--paper)] font-medium text-sm hover:bg-[var(--ink-2)] transition-all"
-          >
-            {json.contact.email}
-            <span
-              class="size-7 inline-flex items-center justify-center rounded-full bg-[var(--paper)] text-[var(--ink)] transition-transform group-hover:rotate-45"
-            >
-              <ArrowUpRight className="size-3.5" />
-            </span>
-          </a>
-
-          <a
-            href={`tel:${json.contact.tel}`}
-            class="group inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[rgba(28,26,22,0.18)] text-[var(--ink)] hover:border-[rgba(28,26,22,0.4)] hover:bg-white/50 transition-all text-sm"
-          >
-            <PhoneIcon className="size-4" />
-            {json.contact.tel}
-          </a>
-        </div>
-
-        <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div>
-            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
-              Based in
-            </div>
-            <div class="mt-1.5">
-              {json.contact.location}
-            </div>
-          </div>
-          <div>
-            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
-              Response time
-            </div>
-            <div class="mt-1.5">Within 24 hours</div>
-          </div>
-          <div>
-            <div class="mono text-[10px] tracking-[0.22em] uppercase text-[var(--ink-faint)]">
-              Connect
-            </div>
-            <div class="mt-2 flex gap-2">
-              <a
-                href={json.contact.git}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="GitHub"
-                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
-              >
-                <GitHubIcon className="size-4" />
-              </a>
-              <a
-                href={json.contact.linkedIn}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
-              >
-                <LinkedInIcon className="size-4" />
-              </a>
-              <a
-                href={json.contact.telegram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Telegram"
-                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
-              >
-                <TelegramIcon />
-              </a>
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="WhatsApp"
-                class="size-9 inline-flex items-center justify-center rounded-full border border-[rgba(28,26,22,0.12)] text-[var(--ink-mute)] hover:text-[var(--ink)] hover:border-[rgba(28,26,22,0.28)] hover:bg-white/60 transition-all"
-              >
-                <WhatsAppIcon className="size-4" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 </Layout>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>(".pricing-cta").forEach((el) => {
+    el.addEventListener("click", () => {
+      const tier = el.dataset.tier;
+      if (!tier) return;
+      window.dispatchEvent(
+        new CustomEvent("pricing-tier", { detail: { tier } }),
+      );
+    });
+  });
+</script>

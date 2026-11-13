@@ -5,9 +5,84 @@
     "git": "https://github.com/NickGolitsyn/",
     "linkedIn": "https://linkedin.com/in/nickgolitsyn",
     "telegram": "https://t.me/nickgolitsyn",
-    "locationLink": "https://www.google.com/maps/place/Norfolk",
-    "location": "Norfolk, United Kingdom"
+    "locationLink": "https://www.google.com/maps/place/Earsham,+Norfolk",
+    "location": "Earsham, Norfolk"
   },
+  "pricing": {
+    "ownership": "The site is a one-off. You own it. You pay your own domain each year (about £5–10); there is no monthly fee from me unless you want optional care.",
+    "care": {
+      "from": "£8",
+      "range": "£5–15",
+      "blurb": "Optional care from £8/month (typically £5–15 depending on the site): I can handle domain and hosting for you, plus light updates as agreed."
+    },
+    "tiers": [
+      {
+        "id": "starter",
+        "name": "Starter",
+        "price": "£299",
+        "summary": "One-page site, contact form, mobile-ready",
+        "features": [
+          "One-page design",
+          "Contact form",
+          "Mobile-ready layout",
+          "Basic SEO setup"
+        ]
+      },
+      {
+        "id": "business",
+        "name": "Business",
+        "price": "£449",
+        "summary": "Multi-page site with enquiry form",
+        "features": [
+          "Home, About, Services, Contact",
+          "Enquiry form",
+          "Mobile-ready layout",
+          "Basic SEO setup"
+        ]
+      },
+      {
+        "id": "growth",
+        "name": "Growth",
+        "price": "£699",
+        "summary": "Business site plus blog, gallery, or booking-ready layout",
+        "features": [
+          "Everything in Business",
+          "Blog, gallery, or booking-ready layout",
+          "SEO basics",
+          "Content structure for growth"
+        ]
+      },
+      {
+        "id": "custom",
+        "name": "Custom",
+        "price": "£999+",
+        "summary": "E-commerce, custom features, integrations",
+        "features": [
+          "Scoped after a short chat",
+          "E-commerce & payments",
+          "Custom features & integrations",
+          "Training as needed"
+        ]
+      }
+    ]
+  },
+  "process": [
+    {
+      "step": "01",
+      "title": "Send a message",
+      "blurb": "Tell me what you need and what you are trying to achieve."
+    },
+    {
+      "step": "02",
+      "title": "Plan and build",
+      "blurb": "I handle the design and build, and keep you updated as it comes together."
+    },
+    {
+      "step": "03",
+      "title": "Review and launch",
+      "blurb": "You review, request changes if needed, and we go live."
+    }
+  ],
   "skillGroups": [
     {
       "label": "Frontend",
@@ -176,6 +251,34 @@
   ],
   "projects": [
     {
+      "title": "Snapshot Drones",
+      "kind": "Local business",
+      "featured": true,
+      "description": "A marketing site for a Norfolk drone services business - clear services, strong visuals, and an enquiry form that sends straight to the owner.",
+      "outcome": "Local clients can see the work and get in touch without phone tag or social DMs.",
+      "stack": ["Next.js", "Tailwind", "Resend"],
+      "url": "https://www.snapshotdrones.co.uk/",
+      "images": [
+        "/projects/snapshot-drones/01.webp",
+        "/projects/snapshot-drones/02.webp",
+        "/projects/snapshot-drones/03.webp"
+      ]
+    },
+    {
+      "title": "Orthodox Parish Website",
+      "kind": "Local community",
+      "featured": true,
+      "description": "Multilingual website for a Romanian Orthodox parish in Norfolk - schedules, news, and parish life in a calm, accessible layout.",
+      "outcome": "Members and visitors find services and updates in English and Romanian without hunting through Facebook.",
+      "stack": ["Next.js", "TypeScript", "Tailwind", "Sanity.io"],
+      "url": "https://www.parohianorwich.org/en",
+      "images": [
+        "/projects/orthodox-parish/01.webp",
+        "/projects/orthodox-parish/02.webp",
+        "/projects/orthodox-parish/03.webp"
+      ]
+    },
+    {
       "title": "Orthodox Pilgrim",
       "kind": "Directory",
       "featured": true,
@@ -189,41 +292,27 @@
       ]
     },
     {
-      "title": "Snapshot Drones",
-      "kind": "Marketing",
+      "title": "PL Predictions",
+      "kind": "App",
       "featured": true,
-      "description": "A marketing site for a drone services business, with enquiries handled through Resend.",
-      "stack": ["Next.js", "Tailwind", "Resend"],
-      "url": "https://www.snapshotdrones.co.uk/",
+      "description": "A Premier League prediction game with season standings, gameweek winners, cups, and head-to-head - the fuller successor to the Euro 2024 predictor.",
+      "stack": ["Next.js", "TypeScript", "Tailwind"],
+      "url": "https://pl-predictions.nickgolitsyn.com/",
       "images": [
-        "/projects/snapshot-drones/01.webp",
-        "/projects/snapshot-drones/02.webp",
-        "/projects/snapshot-drones/03.webp"
+        "/projects/pl-predictions/01.webp",
+        "/projects/pl-predictions/02.webp"
       ]
     },
     {
       "title": "Resurrection Egg Shop",
       "kind": "E-commerce",
-      "featured": true,
+      "featured": false,
       "description": "An e-commerce shop selling collectible eggs. Custom checkout, motion-rich product pages, and a refined editorial feel.",
       "stack": ["Next.js", "Stripe", "Tailwind", "Framer Motion"],
-      "url": "https://www.glebfeels.com/en",
+      "url": "https://gleb-feels-egg.vercel.app/en",
       "images": [
         "/projects/resurrection-egg-shop/01.webp",
         "/projects/resurrection-egg-shop/02.webp"
-      ]
-    },
-    {
-      "title": "Orthodox Parish Website",
-      "kind": "Parish",
-      "featured": true,
-      "description": "Multilingual website for a Romanian Orthodox parish based in Norfolk. Focused on accessibility and slow, considered typography.",
-      "stack": ["Next.js", "TypeScript", "Tailwind", "Sanity.io"],
-      "url": "https://www.parohianorwich.org/en",
-      "images": [
-        "/projects/orthodox-parish/01.webp",
-        "/projects/orthodox-parish/02.webp",
-        "/projects/orthodox-parish/03.webp"
       ]
     },
     {

@@ -139,7 +139,7 @@ export default function ProjectGallery({
       {cover ? (
         <Frame
           src={cover}
-          alt={`${title} — ${kind}`}
+          alt={`${title} - ${kind}`}
           className={frameClass}
           sizes={
             variant === "featured"
@@ -171,7 +171,7 @@ export default function ProjectGallery({
       >
         <Frame
           src={cover}
-          alt={`${title} — ${kind}`}
+          alt={`${title} - ${kind}`}
           className={frameClass}
           sizes="(min-width: 768px) 45vw, 100vw"
           priority={priority}
